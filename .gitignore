@@ -1,3 +1,6 @@
+.DS_Store
 *.gdoc
 *.gsite
-.DS_Store
+*.gsheet
+*.gslides
+node_modules/
