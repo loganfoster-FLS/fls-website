@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // 4. Send Data
         // IMPORTANT: Ensure this URL matches your NEWEST Google Deployment
-        const scriptURL = 'YOUR_NEW_GOOGLE_SCRIPT_URL';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyH5CsJaxr4fUrdUXUgI3hWtbxoRO-JcQ56FP4gk3REnSxnFwi360yNodWTuC7ecJarVg/exec';
         
         const btn = form.querySelector('button[type="submit"]');
         const originalBtnText = btn.innerText;
