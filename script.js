@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // 1. Basic required field check
+        // 1. Basic required field check (KEEP THIS)
         const name  = form.querySelector('#field-name');
         const email = form.querySelector('#field-email');
         const desc  = form.querySelector('#field-description');
@@ -153,10 +153,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!valid) return;
 
-        // --- NEW: SEND DATA TO GAS ---
-        const scriptURL = 'AKfycbyr8jrmJkJUxZMYJlCrIqYmfqRmrRbWG1mMM32GrEkf-uMvWjUs2mlhcM_w40FJbBFIUQ'; // Replace this
+        // 2. SEND DATA TO GOOGLE SHEETS (Replaces your old logic)
+        // REPLACE THE URL BELOW with the one you get from Google Apps Script 'Deploy'
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyr8jrmJkJUxZMYJlCrIqYmfqRmrRbWG1mMM32GrEkf-uMvWjUs2mlhcM_w40FJbBFIUQ/exec'; 
         
-        // Change button text to show "sending" state
         const btn = form.querySelector('button[type="submit"]');
         const originalBtnText = btn.innerText;
         btn.innerText = "Sending...";
@@ -167,8 +167,6 @@ document.addEventListener('DOMContentLoaded', function () {
             body: new FormData(form) 
         })
         .then(response => {
-            console.log('Success!', response);
-            // 2. Hide form, show success (Your existing logic)
             form.style.display = 'none';
             showSuccessMessage();
         })
@@ -176,9 +174,11 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error!', error.message);
             btn.innerText = originalBtnText;
             btn.disabled = false;
-            alert("Something went wrong. Please try again.");
+            alert("Submission failed. Please check your connection and try again.");
         });
     });
+
+    // ... keep the rest of your showSuccessMessage and border-clearing functions below
 
     function showSuccessMessage() {
         let success = document.getElementById('form-success');
