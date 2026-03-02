@@ -118,6 +118,8 @@ body::after {
 .top-nav-links li button.active { color: var(--text); }
 
 .top-nav-cta {
+    display: inline-block; /* Essential for padding and clip-path on an <a> tag */
+    text-decoration: none; /* Removes the default link underline */
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.1em;
@@ -125,6 +127,7 @@ body::after {
     color: var(--bg) !important;
     background: var(--cyan) !important;
     padding: 9px 20px !important;
+    /* This keeps your custom clipped corners shape */
     clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
     transition: background 0.2s !important;
 }
@@ -344,6 +347,7 @@ body::after {
     flex-shrink: 0;
     white-space: nowrap;
     overflow: hidden;
+    text-decoration: none;
 }
 
 .rail-cta:hover { background: rgba(0,212,255,0.08); border-color: var(--cyan); }
@@ -1739,6 +1743,7 @@ body::after {
     padding: 14px 28px;
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
 }
 .btn-primary:hover { background: #00f0ff; transform: translateY(-1px); }
 
@@ -1753,6 +1758,7 @@ body::after {
     padding: 14px 28px;
     cursor: pointer;
     transition: color 0.2s, border-color 0.2s, transform 0.15s;
+    text-decoration: none; 
 }
 .btn-ghost:hover { color: var(--text); border-color: var(--text-muted); transform: translateY(-1px); }
 
@@ -2294,4 +2300,38 @@ css/* ─── START A PROJECT PAGE ─── */
     color: var(--text-subtle);
     margin-top: 2px;
     text-transform: none;
+}
+
+/* This targets the radio button when checked and styles the label border/bg */
+.tile-input:checked + .service-label {
+    border-color: var(--cyan) !important;
+    background: rgba(0, 212, 255, 0.08) !important;
+    color: var(--text);
+}
+
+/* This fills in the little square 'check-box' when selected */
+.tile-input:checked + .service-label .check-box {
+    background: var(--cyan);
+    border-color: var(--cyan);
+}
+
+/* This adds a white checkmark inside that box using a pseudo-element */
+.tile-input:checked + .service-label .check-box::after {
+    content: '';
+    display: block;
+    position: absolute;
+    
+    /* Centering logic */
+    top: 45%; /* 45% looks visually more centered than 50% for checkmarks */
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    
+    /* Checkmark shape */
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    
+    /* Reset the previous margin */
+    margin: 0;
 }
