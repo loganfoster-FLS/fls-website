@@ -130,32 +130,44 @@ document.addEventListener('keydown', e => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('project-form');
+    const form = document.getElementById('project-form') || document.getElementById('contact-form');
     if (!form) return;
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // 1. Basic required field check (KEEP THIS)
-        const name  = form.querySelector('#field-name');
+        // 1. Identify Fields
+        const name = form.querySelector('#field-name');
         const email = form.querySelector('#field-email');
-        const desc  = form.querySelector('#field-description');
+        const legalCheck = form.querySelector('#legal-acknowledge');
         let valid = true;
 
-        [name, email, desc].forEach(function (field) {
-            if (!field.value.trim()) {
+        // 2. Basic Text Validation
+        [name, email].forEach(function (field) {
+            if (field && !field.value.trim()) {
                 field.style.borderColor = 'rgba(255,80,80,0.6)';
                 valid = false;
-            } else {
+            } else if (field) {
                 field.style.borderColor = '';
             }
         });
 
-        if (!valid) return;
+        // 3. Legal Checkbox Validation
+        if (legalCheck && !legalCheck.checked) {
+            legalCheck.parentElement.style.color = '#ff5050';
+            valid = false;
+        } else if (legalCheck) {
+            legalCheck.parentElement.style.color = '';
+        }
 
-        // 2. SEND DATA TO GOOGLE SHEETS (Replaces your old logic)
-        // REPLACE THE URL BELOW with the one you get from Google Apps Script 'Deploy'
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyr8jrmJkJUxZMYJlCrIqYmfqRmrRbWG1mMM32GrEkf-uMvWjUs2mlhcM_w40FJbBFIUQ/exec'; 
+        if (!valid) {
+            alert("Please fill in all required fields and acknowledge the legal notice.");
+            return;
+        }
+
+        // 4. Send Data
+        // IMPORTANT: Ensure this URL matches your NEWEST Google Deployment
+        const scriptURL = 'YOUR_NEW_GOOGLE_SCRIPT_URL';
         
         const btn = form.querySelector('button[type="submit"]');
         const originalBtnText = btn.innerText;
@@ -168,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => {
             form.style.display = 'none';
-            showSuccessMessage();
+            showSuccessMessage(form);
         })
         .catch(error => {
             console.error('Error!', error.message);
@@ -177,6 +189,25 @@ document.addEventListener('DOMContentLoaded', function () {
             alert("Submission failed. Please check your connection and try again.");
         });
     });
+
+    function showSuccessMessage(parentForm) {
+        let success = document.createElement('div');
+        success.className = 'form-success show';
+        success.innerHTML = `
+            <div class="form-success-icon">✦</div>
+            <div class="form-success-title">Transmission Received.</div>
+            <div class="form-success-body">Your inquiry has been logged. We will reach out within one business day.</div>
+        `;
+        parentForm.parentNode.appendChild(success);
+    }
+
+    // Clear red borders on typing
+    form.querySelectorAll('.field-input, .field-textarea').forEach(function (field) {
+        field.addEventListener('input', function () {
+            this.style.borderColor = '';
+        });
+    });
+});
 
     // ... keep the rest of your showSuccessMessage and border-clearing functions below
 
@@ -202,4 +233,3 @@ document.addEventListener('DOMContentLoaded', function () {
             this.style.borderColor = '';
         });
     });
-});

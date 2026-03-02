@@ -2335,3 +2335,14 @@ css/* ─── START A PROJECT PAGE ─── */
     /* Reset the previous margin */
     margin: 0;
 }
+
+.form-disclaimer {
+    margin: 40px 0 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 2px solid var(--border);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: var(--text-subtle);
+    border-radius: 4px;
+}
