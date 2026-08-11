@@ -2486,3 +2486,340 @@ css/* ─── START A PROJECT PAGE ─── */
     margin-top: 12px;
     font-style: italic;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CASE-STUDY LEDGER — Portfolio page
+   Append to styles.css. Uses existing :root tokens only.
+   Replaces the .portfolio-card / .card-inner flip-card block.
+   ═══════════════════════════════════════════════════════════ */
+
+.cs-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--text);
+    margin: 0 0 14px;
+    max-width: 18ch;
+    text-wrap: pretty;
+}
+
+.cs-lead {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 66ch;
+    margin: 0 0 40px;
+    text-wrap: pretty;
+}
+
+/* ─── Discipline filters ─── */
+.cs-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+}
+
+.cs-filter {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: none;
+    border: 1px solid var(--border2);
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.cs-filter:hover { color: var(--text); border-color: var(--text-muted); }
+.cs-filter.active { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+
+/* ─── Groups ─── */
+.cs-group-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    margin: 0 0 12px;
+}
+
+.cs-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 36px;
+}
+
+/* ─── Row ─── */
+.cs-row {
+    background: var(--bg);
+    border-left: 2px solid var(--acc, var(--violet-light));
+}
+
+.cs-row > summary { list-style: none; cursor: pointer; }
+.cs-row > summary::-webkit-details-marker { display: none; }
+.cs-row[open] .cs-chev { transform: rotate(180deg); }
+
+.cs-sum {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 26px 28px;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.cs-sum:hover { background: var(--surface); }
+
+.cs-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: var(--text-subtle);
+    width: 26px;
+    flex-shrink: 0;
+}
+
+.cs-titles { flex: 1; min-width: 0; }
+
+.cs-name {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.cs-domain {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--acc, var(--violet-light));
+    margin-top: 6px;
+}
+
+.cs-withheld {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    border: 1px solid var(--border2);
+    padding: 3px 7px;
+    vertical-align: middle;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+.cs-meta {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(240, 236, 248, 0.4);
+    text-align: right;
+    line-height: 1.6;
+    flex-shrink: 0;
+}
+
+.cs-gold { color: var(--gold); }
+
+.cs-status {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.cs-status.wip  { color: var(--gold); border: 1px solid rgba(201, 168, 76, 0.4); }
+.cs-status.done { color: var(--cyan); border: 1px solid rgba(0, 212, 255, 0.4); }
+
+.cs-chev {
+    width: 18px;
+    height: 18px;
+    color: rgba(240, 236, 248, 0.4);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+/* ─── Detail ─── */
+.cs-detail {
+    padding: 0 28px 34px 78px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+}
+
+.cs-detail-solo { display: block; }
+
+.cs-sub {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 10px;
+}
+
+.cs-sub + .cs-p { margin-bottom: 26px; }
+
+.cs-p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: rgba(240, 236, 248, 0.62);
+    margin: 0;
+    max-width: 78ch;
+    text-wrap: pretty;
+}
+
+.cs-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin: 0;
+    padding: 0;
+}
+
+.cs-bullets li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: rgba(240, 236, 248, 0.72);
+}
+
+.cs-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--acc, var(--violet-light));
+    box-shadow: 0 0 8px var(--acc, var(--violet-light));
+}
+
+.cs-bullets strong { color: #fff; font-weight: 600; }
+
+.cs-panel {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 22px;
+}
+
+.cs-panel-item {
+    padding: 13px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cs-panel-item:last-child { border-bottom: none; }
+
+.cs-callout {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: var(--surface);
+    padding: 22px;
+    margin-bottom: 22px;
+}
+
+.cs-callout.gold {
+    border-color: rgba(201, 168, 76, 0.25);
+    background: rgba(201, 168, 76, 0.05);
+}
+
+.cs-callout-t {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0 0 10px;
+    text-wrap: pretty;
+}
+
+.cs-callout-b {
+    font-size: 0.85rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin: 0;
+    text-wrap: pretty;
+}
+
+.cs-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 22px;
+}
+
+/* .pc-tag is reused from the existing card system — kept here in case
+   the old block is removed entirely. */
+.cs-tags .pc-tag {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--border2);
+    padding: 4px 9px;
+}
+
+.cs-note {
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: rgba(240, 236, 248, 0.4);
+    border-left: 2px solid var(--border2);
+    padding-left: 12px;
+    margin: 0;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1000px) {
+    .cs-detail { grid-template-columns: 1fr; gap: 26px; padding-left: 28px; }
+}
+
+@media (max-width: 760px) {
+    .cs-sum { flex-wrap: wrap; gap: 12px 16px; padding: 22px 20px; }
+    .cs-num { width: auto; }
+    .cs-titles { flex-basis: 100%; order: 1; }
+    .cs-meta { text-align: left; order: 2; }
+    .cs-status { order: 3; }
+    .cs-chev { order: 4; margin-left: auto; }
+    .cs-detail { padding: 0 20px 28px; }
+}
+
+.cs-visit {
+    margin: 10px 0 0;
+}
+.cs-visit a {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    color: var(--acc);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+.cs-visit a:hover {
+    border-bottom-color: var(--acc);
+}
