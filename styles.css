@@ -70,14 +70,16 @@ body::after {
     cursor: pointer;
 }
 
-.top-nav-brand img {
+.top-nav-brand img,
+.top-nav-brand svg {
     width: 34px; height: 34px;
     object-fit: contain;
     filter: drop-shadow(0 0 8px rgba(107,63,204,0.7));
     transition: filter 0.3s;
 }
 
-.top-nav-brand:hover img { filter: drop-shadow(0 0 14px rgba(0,212,255,0.6)); }
+.top-nav-brand:hover img,
+.top-nav-brand:hover svg { filter: drop-shadow(0 0 14px rgba(0,212,255,0.6)); }
 
 .brand-name {
     font-family: 'Space Grotesk', sans-serif;
@@ -1857,41 +1859,222 @@ body::after {
     justify-content: center;
 }
 
-.logo-wrap {
+/* ── Hero mark: three separate pieces, one flow ───────────────── */
+.fls-mark-wrap {
     position: relative;
-    width: 280px;
-    height: 280px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 22px;
 }
 
-.logo-ring {
+.fls-mark-stage {
+    position: relative;
+    width: 340px;
+    height: 425px;   /* 0.8 aspect, matches the real mark PNG */
+}
+
+.fls-mark-halo {
     position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(107,63,204,0.2);
+    top: 50%;
+    left: 50%;
+    width: 340px;
+    height: 340px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(107,63,204,0.30), rgba(0,212,255,0.10) 45%, transparent 70%);
+    filter: blur(20px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: calc(0.4 + 0.6 * var(--p, 1));
 }
 
-.lr1 { width: 240px; height: 240px; animation: spin 20s linear infinite; border-top-color: rgba(107,63,204,0.5); }
-.lr2 { width: 200px; height: 200px; animation: spin 14s linear infinite reverse; border-top-color: rgba(0,212,255,0.4); }
-.lr3 { width: 160px; height: 160px; animation: spin 9s linear infinite; border-top-color: rgba(201,168,76,0.3); }
-
-.logo-glow {
+/* The real logo (pixel-perfect curve + gradient). Fades in as the pieces flow together. */
+.fls-mark-img {
     position: absolute;
-    width: 100px; height: 100px;
-    background: radial-gradient(circle, rgba(107,63,204,0.3), transparent 70%);
-    border-radius: 50%;
-}
-
-.logo-img-hero {
-    width: 80px; height: 80px;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    z-index: 1;
+    opacity: calc((var(--p, 1) - 0.34) * 1.7);   /* in from p≈0.34 → 1 (opacity auto-clamps) */
+    filter: drop-shadow(0 16px 34px rgba(40,20,90,0.5));
+}
+
+/* Overlay: the orbits + the three pieces that fly in and hand off to the real mark. */
+.fls-mark-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    overflow: visible;
+}
+.fls-rings { opacity: calc(1 - var(--p, 1)); }   /* orbits fade as the flow takes over */
+.fls-rings circle { stroke-width: 1.3; }
+
+/* Each piece glides from its orbit (--ox/--oy at p=0) to its resting spot (0,0 at p=1),
+   fading out as the real mark fades in underneath it. */
+.ball {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: translate(
+        calc(var(--ox, 0px) * (1 - var(--p, 1))),
+        calc(var(--oy, 0px) * (1 - var(--p, 1)))
+    );
+    opacity: calc(1.1 - var(--p, 1) * 1.9);   /* deliver, then dissolve into the real mark by p≈0.58 */
+}
+.ball-float { transform-box: fill-box; transform-origin: center; }
+
+.fls-mark-cap {
     position: relative;
     z-index: 1;
-    filter: drop-shadow(0 0 20px rgba(107,63,204,0.8));
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    margin: 0;
+    opacity: var(--p, 1);   /* the line lands once the pieces have flowed */
+}
+.fls-mark-cap::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 1px;
+    vertical-align: middle;
+    margin-right: 12px;
+    background: linear-gradient(90deg, transparent, var(--gold));
 }
 
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+/* Gentle idle life once merged */
+@media (prefers-reduced-motion: no-preference) {
+    .ball-float { animation: flsFloat var(--fdur, 8s) ease-in-out infinite; }
+}
+@keyframes flsFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+/* ── Scroll stage: hero pins while the pieces merge ───────────── */
+.hero-scrolly { position: relative; }
+@media (min-width: 1001px) {
+    .hero-scrolly { height: 220vh; }
+    .home-hero {
+        position: sticky;
+        top: 68px;
+        min-height: calc(100vh - 68px);
+    }
+}
+/* Reduced motion: no scrub — a normal hero with the merged mark, no dead scroll */
+@media (prefers-reduced-motion: reduce) {
+    .hero-scrolly { height: auto; }
+    .home-hero { position: static; }
+}
+
+/* ── Three forces: Context · Clarity · Energy ─────────────────── */
+.forces {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 120px 40px 40px;
+}
+.forces-eyebrow {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin: 0 0 18px;
+}
+.forces-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--text);
+    margin: 0 0 14px;
+    max-width: 22ch;
+}
+.forces-lead {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0 0 56px;
+    max-width: 52ch;
+}
+.forces-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+}
+.force {
+    background: var(--bg2);
+    padding: 34px 30px 38px;
+    position: relative;
+    overflow: hidden;
+}
+.force::before {   /* accent wash keyed to the force's color */
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--fc);
+    opacity: 0.9;
+}
+.force-orb {
+    display: block;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-bottom: 22px;
+    background: var(--fc-orb);
+    box-shadow: 0 6px 20px -4px var(--fc);
+}
+.force-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fc);
+    margin: 0 0 10px;
+}
+.force-head {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.16rem;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0 0 12px;
+    line-height: 1.2;
+}
+.force-body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+}
+.force-gold {
+    --fc: #e8c34a;
+    --fc-orb: radial-gradient(circle at 36% 30%, #fff2c4, #edca52 45%, #a67c1c);
+}
+.force-violet {
+    --fc: #7d5cf0;
+    --fc-orb: radial-gradient(circle at 36% 30%, #c9b3f7, #5b3ad9 48%, #2c1878);
+}
+.force-cyan {
+    --fc: #35bcd8;
+    --fc-orb: radial-gradient(circle at 36% 30%, #bff0ff, #23aeca 48%, #0a6a86);
+}
+@media (max-width: 820px) {
+    .forces { padding: 70px 24px 20px; }
+    .forces-grid { grid-template-columns: 1fr; }
+}
 
 .home-stats {
     display: grid;
