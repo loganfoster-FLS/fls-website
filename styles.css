@@ -102,9 +102,8 @@ body::after {
 
 .top-nav-links li a, .top-nav-links li button {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.86rem;
+    letter-spacing: 0.01em;
     color: var(--text-muted);
     text-decoration: none;
     background: none;
@@ -124,9 +123,8 @@ body::after {
     display: inline-block; /* Essential for padding and clip-path on an <a> tag */
     text-decoration: none; /* Removes the default link underline */
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
     color: var(--bg) !important;
     background: var(--cyan) !important;
     padding: 9px 20px !important;
@@ -254,9 +252,8 @@ body::after {
     border-radius: 6px;
     color: var(--text-subtle);
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.86rem;
+    letter-spacing: 0.01em;
     transition: color 0.2s, background 0.2s;
     position: relative;
     text-align: left;
@@ -294,9 +291,8 @@ body::after {
 
 .rail-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.86rem;
+    letter-spacing: 0.01em;
     line-height: 1;
     opacity: 0;
     transform: translateX(-6px);
@@ -318,9 +314,8 @@ body::after {
 
 .rail-section-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
     padding: 4px 11px 6px;
     opacity: 0;
@@ -344,9 +339,8 @@ body::after {
     padding: 11px 11px;
     border-radius: 6px;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
     flex-shrink: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -449,9 +443,8 @@ body::after {
     gap: 12px;
     padding: 12px 16px;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.86rem;
+    letter-spacing: 0.01em;
     color: var(--text-muted);
     transition: color 0.2s, background 0.2s;
     border-radius: 2px;
@@ -472,9 +465,8 @@ body::after {
 .side-nav-cta {
     margin: 16px;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.84rem;
+    letter-spacing: 0.01em;
     color: var(--bg);
     background: var(--cyan);
     border: none;
@@ -582,9 +574,8 @@ body::after {
 
 .about-mission-eyebrow {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
     color: var(--gold);
     margin-bottom: 16px;
     display: flex;
@@ -776,9 +767,8 @@ body::after {
 
 .ps-num {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
     margin-bottom: 6px;
 }
@@ -1008,9 +998,8 @@ body::after {
 /* ─── PORTFOLIO PAGE ─── */
 .portfolio-section-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
     color: var(--gold);
     margin: 48px 0 24px;
     display: flex;
@@ -1158,17 +1147,15 @@ body::after {
 .pc-meta { margin-bottom: 16px; }
 .pc-index {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
     color: rgba(255,255,255,0.3);
     margin-bottom: 4px;
 }
 .pc-domain {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
     color: var(--card-accent);
     margin-bottom: 10px;
     opacity: 0.9;
@@ -1386,9 +1373,8 @@ body::after {
 
 .pc-tag {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
     color: var(--card-accent);
     border: 1px solid var(--card-accent);
     padding: 4px 10px;
@@ -1452,9 +1438,8 @@ body::after {
 
 .tech-category {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
     color: var(--gold);
     margin-bottom: 10px;
 }
@@ -1510,9 +1495,8 @@ body::after {
     align-items: center;
     gap: 8px;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
     padding: 5px 12px;
     border-radius: 0;
     margin-bottom: 20px;
@@ -1593,9 +1577,8 @@ body::after {
 
 .tier-includes-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
     margin-bottom: 14px;
 }
@@ -1629,9 +1612,8 @@ body::after {
 
 .tier-team-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
     color: var(--gold);
     margin-bottom: 12px;
 }
@@ -1663,9 +1645,8 @@ body::after {
 }
 .page-cta-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
     color: var(--cyan);
     margin-bottom: 12px;
 }
@@ -1745,9 +1726,8 @@ body::after {
 
 .home-eyebrow {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
     color: var(--cyan);
     margin-bottom: 20px;
 }
@@ -1789,9 +1769,8 @@ body::after {
 
 .btn-primary {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
     color: var(--bg);
     background: var(--cyan);
     border: none;
@@ -1804,9 +1783,8 @@ body::after {
 
 .btn-ghost {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
     color: var(--text-muted);
     background: none;
     border: 1px solid var(--border);
@@ -1819,9 +1797,8 @@ body::after {
 
 .btn-purple {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
     color: #ffffff;
     background: #6B3FCC;
     border: none;
@@ -1836,9 +1813,8 @@ body::after {
 }
 .btn-gold {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
     color: #1a1a1a; /* darker text for contrast */
     background: #B99B5A;
     border: none;
@@ -1929,9 +1905,8 @@ body::after {
     position: relative;
     z-index: 1;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-size: 0.86rem;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
     margin: 0;
     opacity: var(--p, 1);   /* the line lands once the pieces have flowed */
@@ -1981,9 +1956,8 @@ body::after {
 }
 .forces-eyebrow {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
     color: var(--cyan);
     margin: 0 0 18px;
 }
@@ -2037,9 +2011,8 @@ body::after {
 }
 .force-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
     color: var(--fc);
     margin: 0 0 10px;
 }
@@ -2103,9 +2076,8 @@ body::after {
 
 .stat-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
 }
 
@@ -2203,9 +2175,8 @@ css/* ─── START A PROJECT PAGE ─── */
 
 .start-eyebrow {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
     color: var(--cyan);
     margin-bottom: 14px;
 }
@@ -2236,9 +2207,8 @@ css/* ─── START A PROJECT PAGE ─── */
 
 .form-section-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
     margin-bottom: 16px;
     display: flex;
@@ -2274,9 +2244,8 @@ css/* ─── START A PROJECT PAGE ─── */
 
 .field-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.84rem;
+    letter-spacing: 0.01em;
     color: var(--text-muted);
 }
 
@@ -2509,9 +2478,8 @@ css/* ─── START A PROJECT PAGE ─── */
     background: var(--surface);
     cursor: pointer;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
     transition: border-color 0.2s, color 0.2s, background 0.2s;
     user-select: none;
@@ -2653,9 +2621,8 @@ css/* ─── START A PROJECT PAGE ─── */
     padding: 6px 12px;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
     z-index: 10;
     border-bottom-left-radius: 4px; /* Optional: rounds the inner corner slightly */
     display: flex;
@@ -2707,9 +2674,8 @@ css/* ─── START A PROJECT PAGE ─── */
 
 .cs-filter {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
     color: var(--text-muted);
     background: none;
     border: 1px solid var(--border2);
@@ -2724,9 +2690,8 @@ css/* ─── START A PROJECT PAGE ─── */
 /* ─── Groups ─── */
 .cs-group-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
     margin: 0 0 12px;
 }
@@ -2784,19 +2749,17 @@ css/* ─── START A PROJECT PAGE ─── */
 .cs-domain {
     display: block;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
     color: var(--acc, var(--violet-light));
     margin-top: 6px;
 }
 
 .cs-withheld {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.6rem;
+    font-size: 0.76rem;
     font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
     border: 1px solid var(--border2);
     padding: 3px 7px;
@@ -2807,9 +2770,8 @@ css/* ─── START A PROJECT PAGE ─── */
 
 .cs-meta {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
     color: var(--text-subtle);
     text-align: right;
     line-height: 1.6;
@@ -2820,9 +2782,8 @@ css/* ─── START A PROJECT PAGE ─── */
 
 .cs-status {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.01em;
     padding: 5px 10px;
     flex-shrink: 0;
     white-space: nowrap;
@@ -2851,9 +2812,8 @@ css/* ─── START A PROJECT PAGE ─── */
 
 .cs-sub {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
     color: var(--gold);
     margin: 0 0 10px;
 }
@@ -3026,8 +2986,7 @@ css/* ─── START A PROJECT PAGE ─── */
 .belief-3 { --bc: #23aeca; }
 .belief-4 { --bc: #6fa83c; }
 .belief-k {
-    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--bc); margin: 0 0 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.01em; color: var(--bc); margin: 0 0 10px;
 }
 .belief-t {
     font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.02rem;

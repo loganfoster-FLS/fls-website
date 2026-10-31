@@ -6,12 +6,12 @@ Live site: **freelancerstudios.solutions** (see `CNAME`). Static, deployed from 
 
 This website is a **marketing and lead-generation** asset. Every change should be evaluated against that goal:
 
-- **Primary goal:** turn visitors into qualified leads. The conversion action is **"Start a Project"** (`start.html`) — the CTA that should be reachable from every page.
+- **Primary goal:** turn visitors into qualified leads. The conversion action is **"Start a project"** (`start.html`) — the CTA that should be reachable from every page.
 - **Secondary goal:** build credibility. The portfolio, service tiers, and about content exist to make a prospect trust FLS enough to start that conversation.
 - **Audience:** organizations with real constraints — churches/ministries, agencies, trade businesses, game/venture studios — evaluating whether to hire FLS for AI strategy, automation, product/engineering, or search visibility work.
 - **Tone:** confident, plain-spoken, outcome-focused. Content is kept "deliberately high-level out of respect for clients"; deeper detail is offered on request rather than published.
 
-When in doubt, favor changes that improve clarity of the offer, credibility of the work, and the path to "Start a Project." Avoid vanity content that doesn't serve those.
+When in doubt, favor changes that improve clarity of the offer, credibility of the work, and the path to "Start a project." Avoid vanity content that doesn't serve those.
 
 ## Tech stack
 
@@ -28,10 +28,14 @@ When in doubt, favor changes that improve clarity of the offer, credibility of t
 - Keep `/src/styles.css` + `/src/main.ts` as the asset references in page `<head>`s — do **not** revert pages to flat `styles.css` / `script.js` (that predates the Vite migration and breaks the build).
 - Client-facing content is high-level by design; link out to live client sites where they exist rather than over-describing engagements.
 - **Text color scale (solid, not alpha):** `--text` `#F0ECF8` for headings; `--text-muted` `#ABA4BD` (8.2:1 on `--bg2`) for body/secondary copy; `--text-subtle` `#8F88A3` (5.8:1) for small labels. Greys are lavender-tinted to sit in the violet-black ground. Don't reintroduce `rgba(240,236,248,…)` text — alpha greys shift with whatever's behind them. Body weight is Inter **400** (300 washed out at small sizes).
+- **Sentence case, no decoration:** labels, eyebrows, nav, tags and buttons are sentence case — no `text-transform: uppercase` (the only exception is the brand wordmark: `.brand-name`, `.rail-brand-text`, `.side-brand-name`, `.ntl-name`). Don't append "→" to button or link text; an arrow is fine only where it carries meaning (e.g. "Build → ship → scale"). Keep proper nouns and tier names capitalized ("Tier 1: Compass").
 
 ## Change log
 
 Newest first. Record notable content/structure changes here so the site's history stays legible.
+
+### 2026-10-30 — Sentence case labels, no button arrows
+- Removed `text-transform: uppercase` from 41 rules (eyebrows, section/form/field labels, stat labels, tier badges, nav, rail, buttons); reset their wide caps letter-spacing to 0.01em and stepped sizes up (≈0.55–0.75rem → 0.72–0.88rem) so lowercase reads at the same weight. Rewrote the affected text to sentence case across all pages and dropped the trailing "→" from every button. Tier badges unified to "Tier N: Name".
 
 ### 2026-10-30 — Rail logo fixed on every page
 - Swapped the left-rail logo on `about`, `services`, `contact`, `start` and `portfolio` from the inline base64 JPEG (opaque black square) to the shared transparent `fls-mark.webp`. No more inline logo data anywhere; each page dropped ~45 KB and the logo is now one cached asset.
