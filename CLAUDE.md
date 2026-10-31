@@ -27,10 +27,17 @@ When in doubt, favor changes that improve clarity of the offer, credibility of t
 - Root `styles.css` is the source of truth for styling; `src/styles.css` only adds Tailwind theme tokens on top.
 - Keep `/src/styles.css` + `/src/main.ts` as the asset references in page `<head>`s — do **not** revert pages to flat `styles.css` / `script.js` (that predates the Vite migration and breaks the build).
 - Client-facing content is high-level by design; link out to live client sites where they exist rather than over-describing engagements.
+- **Text color scale (solid, not alpha):** `--text` `#F0ECF8` for headings; `--text-muted` `#ABA4BD` (8.2:1 on `--bg2`) for body/secondary copy; `--text-subtle` `#8F88A3` (5.8:1) for small labels. Greys are lavender-tinted to sit in the violet-black ground. Don't reintroduce `rgba(240,236,248,…)` text — alpha greys shift with whatever's behind them. Body weight is Inter **400** (300 washed out at small sizes).
 
 ## Change log
 
 Newest first. Record notable content/structure changes here so the site's history stays legible.
+
+### 2026-10-30 — Text legibility pass
+- Replaced the alpha-white secondary text tokens with solid lavender-greys (`--text-muted` `#ABA4BD`, `--text-subtle` `#8F88A3`), raised body weight 300 → 400, and made `.cs-tags .pc-tag` 0.76rem sentence case in body grey. Tokenized the leftover hard-coded alpha greys in the (unused) `.cs-*` ledger styles.
+
+### 2026-10-30 — Portfolio stripped to icons + tags
+- **Portfolio (`portfolio.html`):** each sector card is now just an accent-colored line icon (`.sector-ic`: cross, map pin, layers, spark), the sector name and a few tags. Removed the intro sentence, the per-card one-liners and bullet lists, the "Technologies We Work With" band (`.tech-grid`), and the CTA label/paragraph (title + button remain). Page fits on one screen.
 
 ### 2026-10-30 — Portfolio reframed by sector; About rebuilt
 - **Portfolio (`portfolio.html`):** replaced the per-client Option 1B ledger with **four anonymous, work-focused sector cards** — Ministry & Nonprofits, Trade & Local Business, Agencies, Studios & Ventures. Each card leads with the kind of work delivered in that sector (no client names, no "Visit website" links — fully anonymous by request), with discipline/stack tags (`.cs-tags .pc-tag`). Dropped the discipline filter tabs and the inline filter script. Kept the "Technologies We Work With" band and the CTA. New styles: `.sector-grid` / `.sector*` (2-col, 1-col on mobile). The old `.cs-*` ledger styles remain in `styles.css` but are now unused.
