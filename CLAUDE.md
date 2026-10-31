@@ -36,6 +36,7 @@ Newest first. Record notable content/structure changes here so the site's histor
 
 ### 2026-10-30 — Sentence case labels, no button arrows
 - Removed `text-transform: uppercase` from 41 rules (eyebrows, section/form/field labels, stat labels, tier badges, nav, rail, buttons); reset their wide caps letter-spacing to 0.01em and stepped sizes up (≈0.55–0.75rem → 0.72–0.88rem) so lowercase reads at the same weight. Rewrote the affected text to sentence case across all pages and dropped the trailing "→" from every button. Tier badges unified to "Tier N: Name".
+- Follow-up: sentence-cased the remaining Title Case headings (About card titles, portfolio sector names, Services tier names, Start h1, Privacy title + section headings), the Services price labels ("Flat rate", "Estimated per project", "Flat rate + dedicated support") and team roles, and the footer "Privacy policy" link on every page. Proper nouns and acronyms keep their capitals (Google Sheets, AI/ML, TBD).
 
 ### 2026-10-30 — Rail logo fixed on every page
 - Swapped the left-rail logo on `about`, `services`, `contact`, `start` and `portfolio` from the inline base64 JPEG (opaque black square) to the shared transparent `fls-mark.webp`. No more inline logo data anywhere; each page dropped ~45 KB and the logo is now one cached asset.
