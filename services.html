@@ -3,248 +3,423 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Lancer Studios</title>
+  <title>Services | Free Lancer Studios</title>
+  <meta name="description" content="AI strategy, automation, product engineering and search visibility. Explore interactive system and user maps, then pick the partnership model that fits."/>
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/src/styles.css">
   <script type="module" src="/src/main.ts"></script>
+  <script type="module" src="/src/neon.ts"></script>
+  <script type="module" src="/src/system-map.ts"></script>
 </head>
 <body class="inner-page">
-    <!-- LEFT NAV: persistent on inner pages -->
-    <!-- Overlay to close nav on outside click -->
-    <div id="rail-overlay" onclick="collapseRail()"></div>
+  <!-- LEFT NAV: persistent on inner pages -->
+  <div id="rail-overlay" onclick="collapseRail()"></div>
+  <div id="icon-rail" class="visible">
+    <button class="rail-toggle" onclick="toggleRail()" title="Toggle menu" aria-label="Toggle navigation">
+      <svg class="icon-menu" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 4.5h14M2 9h14M2 13.5h14"/></svg>
+      <svg class="icon-close" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l10 10M14 4L4 14"/></svg>
+    </button>
+    <a class="rail-logo" href="index.html" title="Home">
+      <img src="fls-mark.webp" alt="Free Lancer Studios"/>
+      <div class="rail-brand-text">Free Lancer<br><span>Studios</span></div>
+    </a>
+    <ul class="rail-links">
+      <li><a class="rail-btn" href="index.html" id="rail-home">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5L9 2l7 6.5V16a.5.5 0 01-.5.5h-4v-4h-5v4h-4A.5.5 0 012 16V8.5z"/></svg>
+        <span class="rail-label">Home</span></a></li>
+      <li><div class="rail-divider"></div></li>
+      <li><span class="rail-section-label">Company</span></li>
+      <li><a class="rail-btn" href="about.html" id="rail-about">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="2.5"/><path d="M3.5 16c0-3.04 2.46-5.5 5.5-5.5s5.5 2.46 5.5 5.5"/></svg>
+        <span class="rail-label">About</span></a></li>
+      <li><a class="rail-btn" href="portfolio.html" id="rail-portfolio">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="10" rx="1.5"/><path d="M6 5V4a1 1 0 011-1h4a1 1 0 011 1v1"/></svg>
+        <span class="rail-label">Portfolio</span></a></li>
+      <li><a class="rail-btn active" href="services.html" id="rail-services">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5h14M2 9h10M2 13.5h7"/></svg>
+        <span class="rail-label">Services</span></a></li>
+      <li><div class="rail-divider"></div></li>
+      <li><span class="rail-section-label">Start</span></li>
+      <li><a class="rail-btn" href="start.html" id="rail-start">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2l7 7-7 7M2 9h14"/></svg>
+        <span class="rail-label">Start a project</span></a></li>
+      <li><a class="rail-btn" href="contact.html" id="rail-contact">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h14v12H2z"/><path d="M2 5l7 5 7-5"/></svg>
+        <span class="rail-label">Contact</span></a></li>
+    </ul>
+    <a href="start.html" class="rail-cta">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2l7 7-7 7M2 9h14"/></svg>
+      <span class="rail-cta-label">Start a project</span>
+    </a>
+  </div>
 
-    <div id="icon-rail" class="visible">
-        <!-- Hamburger toggle -->
-        <button class="rail-toggle" onclick="toggleRail()" title="Toggle menu" aria-label="Toggle navigation">
-        <svg class="icon-menu" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M2 4.5h14M2 9h14M2 13.5h14"/>
+  <div class="nx-ambient" aria-hidden="true"><span></span><span></span><span></span></div>
+  <!-- shared neon gradients -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="nxFlow" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a888ff"/><stop offset=".5" stop-color="#e8c34a"/><stop offset="1" stop-color="#38d6f5"/>
+      </linearGradient>
+      <linearGradient id="nxFlowV" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#a888ff"/><stop offset=".55" stop-color="#6b5cf0"/><stop offset="1" stop-color="#38d6f5"/>
+      </linearGradient>
+      <linearGradient id="nxFlowH" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#8b63e8" stop-opacity="0"/><stop offset=".25" stop-color="#a888ff"/><stop offset=".6" stop-color="#38d6f5"/><stop offset="1" stop-color="#38d6f5" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="nxRibbonFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8b4dff" stop-opacity=".55"/><stop offset=".55" stop-color="#4b4fe8" stop-opacity=".35"/><stop offset="1" stop-color="#23aeca" stop-opacity=".5"/>
+      </linearGradient>
+      <radialGradient id="nxOrbV" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#d6c6ff"/><stop offset=".45" stop-color="#6a45f0"/><stop offset="1" stop-color="#2c1878"/></radialGradient>
+      <radialGradient id="nxOrbG" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#fff3c8"/><stop offset=".45" stop-color="#eec850"/><stop offset="1" stop-color="#a67c1c"/></radialGradient>
+      <radialGradient id="nxOrbC" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#d0f6ff"/><stop offset=".45" stop-color="#2bc2e0"/><stop offset="1" stop-color="#0a6a86"/></radialGradient>
+      <radialGradient id="nxOrbN" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#dfe5ff"/><stop offset=".45" stop-color="#5068f0"/><stop offset="1" stop-color="#1b2470"/></radialGradient>
+      <filter id="nxSoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="9"/></filter>
+      <filter id="nxBloom" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+    </defs>
+  </svg>
+
+  <!-- ── SERVICES ── -->
+  <main class="nx" id="page-services">
+
+    <!-- Hero -->
+    <section class="nx-hero">
+      <div class="nx-field" aria-hidden="true">
+        <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
+          <path class="nx-neon" d="M0,250 C240,300 340,140 560,170 S940,320 1200,230" stroke="url(#nxFlowH)" stroke-width="1.2" vector-effect="non-scaling-stroke" opacity=".5"/>
+          <path class="nx-neon" d="M0,320 C220,280 420,220 640,260 S980,350 1200,300" stroke="url(#nxFlowH)" stroke-width="1" vector-effect="non-scaling-stroke" opacity=".3"/>
         </svg>
-        <svg class="icon-close" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M4 4l10 10M14 4L4 14"/>
-        </svg>
-        </button>
-
-        <div class="rail-logo" onclick="goHome()" title="Home">
-        <img src="fls-mark.webp" alt="Free Lancer Studios"/>
-        <div class="rail-brand-text">Free Lancer<br><span>Studios</span></div>
-        </div>
-
-        <ul class="rail-links">
-            <li>
-                <a class="rail-btn" href="index.html" id="rail-home">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 8.5L9 2l7 6.5V16a.5.5 0 01-.5.5h-4v-4h-5v4h-4A.5.5 0 012 16V8.5z"/>
-                </svg>
-                <span class="rail-label">Home</span>
-                </a>
-            </li>
-
-            <li><div class="rail-divider"></div></li>
-            <li><span class="rail-section-label">Company</span></li>
-
-            <li>
-                <a class="rail-btn" href="about.html" id="rail-about">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="6" r="2.5"/>
-                    <path d="M3.5 16c0-3.04 2.46-5.5 5.5-5.5s5.5 2.46 5.5 5.5"/>
-                </svg>
-                <span class="rail-label">About</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="rail-btn" href="portfolio.html" id="rail-portfolio">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="5" width="14" height="10" rx="1.5"/>
-                    <path d="M6 5V4a1 1 0 011-1h4a1 1 0 011 1v1"/>
-                </svg>
-                <span class="rail-label">Portfolio</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="rail-btn active" href="services.html" id="rail-services">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 4.5h14M2 9h10M2 13.5h7"/>
-                </svg>
-                <span class="rail-label">Services</span>
-                </a>
-            </li>
-
-            <li><div class="rail-divider"></div></li>
-            <li><span class="rail-section-label">Start</span></li>
-
-            <li>
-                <a class="rail-btn" href="start.html" id="rail-start">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 2l7 7-7 7M2 9h14"/>
-                </svg>
-                <span class="rail-label">Start a project</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="rail-btn" href="contact.html" id="rail-contact">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 3h14v12H2z"/>
-                    <path d="M2 5l7 5 7-5"/>
-                </svg>
-                <span class="rail-label">Contact</span>
-                </a>
-            </li>
-        </ul>
-          <a href="start.html" class="rail-cta">
-            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 2l7 7-7 7M2 9h14"/>
-            </svg>
-            <span class="rail-cta-label">Start a project</span>
-          </a>
-    </div>
-    <!-- ── SERVICES ── -->
-    <div class="page" id="page-services">
-      <div class="inner-page">
-
-        <div class="services-tiers">
-
-          <!-- TIER 1 -->
-          <div class="tier-card t1">
-            <div class="tier-badge">Tier 1: Compass</div>
-            <div class="tier-header">
-              <div class="tier-title-block">
-                <h2 class="tier-name">Consulting</h2>
-                <p class="tier-tagline">Pure strategy and advisory — no hands-on development work.</p>
-              </div>
-              <div class="tier-pricing">
-                <div class="tier-price">$100<span style="font-size:1rem;font-weight:400;color:var(--text-subtle)">/hr</span></div>
-                <p class="tier-price-note">Discounts available for nonprofits and ministries.</p>
-              </div>
-            </div>
-            <div class="tier-divider"></div>
-            <div class="tier-body">
-              <div class="tier-desc">
-                <p>Best for organizations that need a clear plan before spending on engineering. You own all technical decisions and infrastructure — we deliver the strategy, structure, and documentation to make your team successful executing it.</p>
-                <p style="margin-top:14px;">Think of this as a highly technical advisor sitting at your table — asking the right questions, mapping the system, and handing you something concrete to act on.</p>
-              </div>
-              <div class="tier-includes">
-                <p class="tier-includes-label">Common deliverables</p>
-                <div class="tier-item"><div class="tier-item-dot"></div>Problem definition & discovery workshops</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>System architecture & product roadmaps</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Technology selection & vendor evaluation</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Process mapping & workflow design</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Documentation & handoff materials</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Advisory calls (async or live)</div>
-              </div>
-            </div>
-            <div class="tier-cta-wrap">
-              <a href="start.html" style="text-decoration: none;">
-                  <button class="btn-purple">Inquire about consulting</button>
-              </a>
-            </div>
-          </div>
-
-          <!-- TIER 2 -->
-          <div class="tier-card t2">
-            <div class="tier-badge">Tier 2: Expedition</div>
-            <div class="tier-header">
-              <div class="tier-title-block">
-                <h2 class="tier-name">Hybrid build</h2>
-                <p class="tier-tagline">We build inside your infrastructure. You own the ongoing costs.</p>
-              </div>
-              <div class="tier-pricing">
-                <div class="tier-price" style="font-size:1.5rem;">Flat rate</div>
-                <p class="tier-price-note">Estimated per project</p>
-              </div>
-            </div>
-            <div class="tier-divider"></div>
-            <div class="tier-body">
-              <div class="tier-desc">
-                <p>Ideal for teams that want done-for-you implementation without handing over infrastructure ownership. You provide access and absorb the ongoing running costs — we build, configure, and hand it over documented and production-ready.</p>
-                <p style="margin-top:14px;">Common setups include Google Apps Scripts, n8n automations, AI API integrations with your keys, and lightweight apps deployed to your own hosting. Priced as a flat project rate.</p>
-              </div>
-              <div class="tier-includes">
-                <p class="tier-includes-label">Common deliverables</p>
-                <div class="tier-item"><div class="tier-item-dot"></div>Full hands-on build & configuration</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Google Apps Script / n8n / automation setup</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>AI API integration (your keys)</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Deployment to your infrastructure</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Documentation & team onboarding</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>30-day post-launch support window</div>
-              </div>
-            </div>
-            <div class="tier-cta-wrap">
-              <a href="start.html" style="text-decoration: none;">
-                  <button class="btn-primary">Inquire about hybrid</button>
-              </a>            
-            </div>
-          </div>
-
-          <!-- TIER 3 -->
-          <div class="tier-card t3">
-            <div class="coming-soon-banner">Coming soon</div>
-            <div class="tier-badge">Tier 3: Atlas</div>
-            <div class="tier-header">
-              <div class="tier-title-block">
-                <h2 class="tier-name">Full ownership</h2>
-                <p class="tier-tagline">FLS owns and operates everything. You get a product and a team.</p>
-              </div>
-              <div class="tier-pricing">
-                <div class="tier-price" style="font-size:1.5rem;">Flat rate + dedicated support</div>
-                <p class="tier-price-note">Dedicated support will vary on project complexity and needs.</p>
-              </div>
-            </div>
-            <div class="tier-divider"></div>
-            <div class="tier-body">
-              <div class="tier-desc">
-                <p>The complete end-to-end solution. FLS bears all infrastructure costs — server hosting, AI API keys, automation licensing, and everything required to keep your product running — and you pay a single flat rate derived from an estimated setup time.</p>
-                <p style="margin-top:14px;">This tier comes with a <strong style="color:var(--gold)">dedicated ongoing support team</strong> assigned to your product — keeping it running, evolving, and scaling without requiring technical overhead on your side.</p>
-              </div>
-              <div class="tier-includes">
-                <p class="tier-includes-label">Common deliverables</p>
-                <div class="tier-item"><div class="tier-item-dot"></div>All infrastructure & running costs covered by FLS</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Server hosting, AI API keys, automation licensing</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Full-stack application engineering</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Ongoing maintenance, scaling & iteration</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>SLA-backed uptime and support</div>
-                <div class="tier-item"><div class="tier-item-dot"></div>Dedicated support team (see below)</div>
-              </div>
-            </div>
-
-            <div class="tier-team">
-              <p class="tier-team-label">Dedicated support team (varies by project)</p>
-              <div class="tier-team-members">
-                <div class="team-member">Product manager</div>
-                <div class="team-member">Full-stack developer</div>
-                <div class="team-member">AI/ML engineer</div>
-                <div class="team-member tbd">+ Specialist roles (TBD per project)</div>
-              </div>
-            </div>
-
-            <div class="tier-cta-wrap" style="margin-top:28px">
-              <a href="start.html" style="text-decoration: none;">
-                <button class="btn-gold">Inquire about full dev</button>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="page-cta-block">
-          <p class="page-cta-label">Not sure which tier fits?</p>
-          <h2 class="page-cta-title">Let's talk it through.</h2>
-          <p class="page-cta-body">Pick your best guess and we'll sort out the details together. Every engagement starts with an honest conversation about what you need and what makes sense.</p>
-          <a href="start.html" style="text-decoration: none;">
-            <button class="btn-primary">Start a project</button>
-          </a>
-        </div>
-
       </div>
-    </div>
+      <div class="nx-hero-copy nx-reveal">
+        <p class="nx-eyebrow">Services</p>
+        <h1 class="nx-h1">Strategy you can act on. <span class="nx-glow">Systems you can own.</span></h1>
+        <p class="nx-sub">AI strategy, automation, product engineering and search visibility. Every engagement starts with a private proposal built around your goals and budget.</p>
+        <div class="nx-btns">
+          <a class="nx-btn" href="start.html">Start a project</a>
+          <a class="nx-btn-ghost" href="#proposal">See how it starts</a>
+        </div>
+      </div>
+
+      <!-- Convergence: scattered inputs flow through FLS and leave as clear outputs -->
+      <div class="nx-hero-art nx-reveal" style="--d:.15s" aria-hidden="true">
+        <svg viewBox="0 0 400 440">
+          <g fill="none" stroke-linecap="round">
+            <path class="nx-glowline" style="--gc:rgba(232,195,74,.9)" d="M14,96 C96,96 92,220 146,220" stroke="#e8c34a" stroke-width="1.8"/>
+            <path class="nx-glowline" style="--gc:rgba(168,136,255,.9)" d="M14,236 C64,236 92,206 146,220" stroke="#a888ff" stroke-width="1.8"/>
+            <path class="nx-glowline" style="--gc:rgba(56,214,245,.9)" d="M14,348 C96,348 92,220 146,220" stroke="#38d6f5" stroke-width="1.8"/>
+            <path class="nx-travel" d="M14,96 C96,96 92,220 146,220" stroke="#fff" stroke-width="3" pathLength="100"/>
+            <path class="nx-travel" style="animation-delay:-2s" d="M14,236 C64,236 92,206 146,220" stroke="#fff" stroke-width="3" pathLength="100"/>
+            <path class="nx-travel" style="animation-delay:-4s" d="M14,348 C96,348 92,220 146,220" stroke="#fff" stroke-width="3" pathLength="100"/>
+
+            <path class="nx-glowline" style="--gc:rgba(106,130,255,.9)" d="M254,220 C304,220 300,112 350,112" stroke="#6a82ff" stroke-width="1.8"/>
+            <path class="nx-glowline" style="--gc:rgba(56,214,245,.9)" d="M254,220 C300,220 310,220 350,220" stroke="#38d6f5" stroke-width="1.8"/>
+            <path class="nx-glowline" style="--gc:rgba(232,195,74,.9)" d="M254,220 C304,220 300,328 350,328" stroke="#e8c34a" stroke-width="1.8"/>
+            <path class="nx-travel" style="animation-delay:-1s" d="M254,220 C304,220 300,112 350,112" stroke="#fff" stroke-width="3" pathLength="100"/>
+            <path class="nx-travel" style="animation-delay:-3s" d="M254,220 C300,220 310,220 350,220" stroke="#fff" stroke-width="3" pathLength="100"/>
+            <path class="nx-travel" style="animation-delay:-5s" d="M254,220 C304,220 300,328 350,328" stroke="#fff" stroke-width="3" pathLength="100"/>
+          </g>
+          <!-- core -->
+          <circle cx="200" cy="220" r="74" fill="#5b3ad9" filter="url(#nxSoft)" opacity=".35"/>
+          <circle cx="200" cy="220" r="56" fill="#0b0720" stroke="url(#nxFlow)" stroke-width="2" class="nx-glowline"/>
+          <g class="nx-spin"><circle cx="200" cy="220" r="68" fill="none" stroke="rgba(168,136,255,.5)" stroke-width="1" stroke-dasharray="2 8" stroke-linecap="round"/></g>
+          <image href="fls-mark.webp" x="172" y="185" width="56" height="70"/>
+          <!-- endpoints -->
+          <g font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#ABA4BD">
+            <circle cx="14" cy="96" r="5" fill="#e8c34a"/><text x="14" y="78">Ideas</text>
+            <circle cx="14" cy="236" r="5" fill="#a888ff"/><text x="14" y="262">Data</text>
+            <circle cx="14" cy="348" r="5" fill="#38d6f5"/><text x="14" y="374">People</text>
+            <circle cx="358" cy="112" r="11" fill="url(#nxOrbN)" class="nx-glowline" style="--gc:rgba(106,130,255,.9)"/><text x="386" y="94" text-anchor="end">Strategy</text>
+            <circle cx="358" cy="220" r="11" fill="url(#nxOrbC)" class="nx-glowline" style="--gc:rgba(56,214,245,.9)"/><text x="386" y="252" text-anchor="end">Systems</text>
+            <circle cx="358" cy="328" r="11" fill="url(#nxOrbG)" class="nx-glowline" style="--gc:rgba(232,195,74,.9)"/><text x="386" y="360" text-anchor="end">Results</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="nx-section">
+      <div class="nx-head nx-reveal">
+        <p class="nx-eyebrow is-cyan">What we do</p>
+        <h2 class="nx-h2">Four ways we make work lighter.</h2>
+        <p class="nx-lead">Each one can stand alone. Most engagements blend two or three, because real problems don’t stay in one lane.</p>
+      </div>
+      <div class="nx-grid is-2">
+        <article class="nx-card nx-reveal" style="--c:#a888ff">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M31 17l-4.5 9.5L17 31l4.5-9.5z"/><circle cx="24" cy="24" r="1.4" fill="currentColor"/></svg></span>
+          <p class="nx-k">AI strategy &amp; enablement</p>
+          <h3 class="nx-t">Know where AI pays off — and use it well.</h3>
+          <p class="nx-b">We find the work AI should do in your organization, set a standard for doing it safely and train your team to run it themselves.</p>
+          <ul class="nx-list"><li>Use-case mapping and readiness</li><li>Team standards, privacy and prompt libraries</li><li>Hands-on coaching for leaders and staff</li></ul>
+        </article>
+        <article class="nx-card nx-reveal" style="--c:#38d6f5; --d:.08s">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="11" r="4"/><circle cx="9" cy="37" r="4"/><circle cx="39" cy="24" r="5"/><path d="M13 11c12 0 10 13 21 13M13 37c12 0 10-13 21-13"/></svg></span>
+          <p class="nx-k">Automation &amp; workflows</p>
+          <h3 class="nx-t">Hand the busywork to systems.</h3>
+          <p class="nx-b">Repetitive, error-prone processes rebuilt as automations your staff can see, trust and adjust.</p>
+          <ul class="nx-list"><li>n8n and Google Apps Script workflows</li><li>AI integrations that run on your own keys</li><li>Documentation and handoff included</li></ul>
+        </article>
+        <article class="nx-card nx-reveal" style="--c:#e8c34a">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 7l17 8.5L24 24 7 15.5z"/><path d="M7 24l17 8.5L41 24"/><path d="M7 32.5L24 41l17-8.5"/></svg></span>
+          <p class="nx-k">Product &amp; engineering</p>
+          <h3 class="nx-t">Ship the thing — and keep it running.</h3>
+          <p class="nx-b">From clickable prototype to production software, with real data, real users and a plan to scale.</p>
+          <ul class="nx-list"><li>Prototypes in weeks, not quarters</li><li>Full-stack apps on Next.js and PostgreSQL</li><li>RAG, embeddings and AI features</li></ul>
+        </article>
+        <article class="nx-card nx-reveal" style="--c:#6a82ff; --d:.08s">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="21" r="13"/><path d="M31 31l10 10"/><path d="M21 14.5l1.7 4.8 4.8 1.7-4.8 1.7-1.7 4.8-1.7-4.8-4.8-1.7 4.8-1.7z"/></svg></span>
+          <p class="nx-k">Search &amp; AI visibility</p>
+          <h3 class="nx-t">Get found — by people and the AI they ask.</h3>
+          <p class="nx-b">Local search, structured data and answer-engine optimization, so the right customers find you first.</p>
+          <ul class="nx-list"><li>Google Business Profile recovery and care</li><li>Structured data for answer engines</li><li>Analytics with plain-language reporting</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- How every engagement starts: private proposal page -->
+    <section class="nx-section" id="proposal">
+      <div class="nx-proposal-wrap">
+        <div class="nx-reveal">
+          <p class="nx-eyebrow">How every engagement starts</p>
+          <h2 class="nx-h2">A proposal built only for you.</h2>
+          <p class="nx-lead">After our first conversation, we build you a private, password-protected proposal page around your goals and your budget. Not a boilerplate PDF — a plan you can adjust, question and share.</p>
+          <ul class="nx-feats">
+            <li class="nx-feat" style="--c:#6a82ff"><span class="nx-feat-ic"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="12" height="8" rx="2.5"/><path d="M7 9V6.5a3 3 0 016 0V9"/></svg></span><div><h3>Private by default</h3><p>Password protected, and easy to share with your board or leadership team.</p></div></li>
+            <li class="nx-feat" style="--c:#38d6f5"><span class="nx-feat-ic"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h9M15 6h2M3 14h3M9 14h8"/><circle cx="13.5" cy="6" r="1.8"/><circle cx="7.5" cy="14" r="1.8"/></svg></span><div><h3>Shaped to your budget</h3><p>Compare options, take pieces on yourself and see the trade-offs before you commit.</p></div></li>
+            <li class="nx-feat" style="--c:#e8c34a"><span class="nx-feat-ic"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V4M4 4h9l-1.8 3L13 10H4"/></svg></span><div><h3>Honest about gates</h3><p>What has to happen first, who clears it, and what we do if the answer is no.</p></div></li>
+            <li class="nx-feat" style="--c:#a888ff"><span class="nx-feat-ic"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="5" r="2"/><circle cx="15.5" cy="5" r="2"/><circle cx="10" cy="15.5" r="2"/><path d="M6.5 5h7M5.5 6.8c1 4 2.5 6.5 3.4 7M14.5 6.8c-1 4-2.5 6.5-3.4 7"/></svg></span><div><h3>See how it connects</h3><p>An architecture map of your systems — and who owns each piece — before anything is built.</p></div></li>
+          </ul>
+        </div>
+
+        <div class="nx-reveal" style="--d:.12s" aria-hidden="true">
+          <div class="nx-pp">
+            <div class="nx-pp-bar">
+              <span class="nx-pp-dots"><i></i><i></i><i></i></span>
+              <span class="nx-pp-url"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2.5" y="5.5" width="7" height="5" rx="1.5"/><path d="M4 5.5V4a2 2 0 014 0v1.5"/></svg>proposals.freelancerstudios.solutions</span>
+            </div>
+            <div class="nx-pp-body">
+              <div class="nx-pp-head">
+                <div><p class="nx-pp-k">Proposal for</p><p class="nx-pp-t">Your organization</p></div>
+                <span class="nx-pp-badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.2 2.2 4.8-5"/></svg>Unlocked</span>
+              </div>
+              <div class="nx-pp-row"><span>Architecture</span><span class="nx-pp-seg"><b class="on">Two lanes</b><b>One hub</b></span></div>
+              <div class="nx-pp-row"><span>Who runs it</span><span class="nx-pp-seg"><b class="on">You own it</b><b>We run it</b></span></div>
+              <div class="nx-pp-row"><span>Training — take it on yourself</span><span class="nx-pp-tog"></span></div>
+              <div class="nx-pp-phases">
+                <div class="nx-pp-ph" style="--c:#e8c34a"><i></i><b>Discovery</b><small>Technical + user</small></div>
+                <div class="nx-pp-ph" style="--c:#38d6f5"><i></i><b>Phase 1</b><small>Foundation</small></div>
+                <div class="nx-pp-ph is-locked" style="--c:#6a82ff"><i></i><b>Phase 2</b><small>After gates clear</small></div>
+              </div>
+              <div class="nx-pp-gates"><span>Gates cleared</span><span class="nx-pp-meter"><i></i></span><span>2 of 4</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phases: scale is the lens on every phase -->
+    <section class="nx-section" id="phases">
+      <div class="nx-head is-center nx-reveal">
+        <p class="nx-eyebrow is-cyan">Discovery first, then phases</p>
+        <h2 class="nx-h2">Every phase is built to scale.</h2>
+        <p class="nx-lead">Scaling isn’t the last step — it’s the lens on every step. Each phase ships something usable and sets up the next, so you grow without starting over.</p>
+      </div>
+      <div class="nx-flow is-rise nx-reveal">
+        <div class="nx-flow-wave" aria-hidden="true">
+          <svg viewBox="0 0 1000 160" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="nxRise" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1000" y2="0">
+                <stop offset="0" stop-color="#e8c34a" stop-opacity="0"/><stop offset=".12" stop-color="#e8c34a"/><stop offset=".38" stop-color="#a888ff"/><stop offset=".62" stop-color="#38d6f5"/><stop offset=".88" stop-color="#6a82ff"/><stop offset="1" stop-color="#6a82ff" stop-opacity=".2"/>
+              </linearGradient>
+            </defs>
+            <path class="nx-neon nx-glowline" style="--gc:rgba(168,136,255,.8)" d="M0,140 C60,140 80,132 125,132 C210,132 290,100 375,100 C460,100 540,68 625,68 C710,68 790,36 875,36 C930,36 965,22 1000,8" stroke="url(#nxRise)" stroke-width="2" vector-effect="non-scaling-stroke"/>
+            <path class="nx-neon nx-travel" d="M0,140 C60,140 80,132 125,132 C210,132 290,100 375,100 C460,100 540,68 625,68 C710,68 790,36 875,36 C930,36 965,22 1000,8" stroke="#fff" stroke-width="3" pathLength="100" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+        <ol class="nx-steps is-rise">
+          <li class="nx-step" style="--c:#e8c34a"><span class="nx-node-orb" style="--c:#e8c34a">00</span><h3 class="nx-step-t">Discovery</h3><p class="nx-step-sub">Technical + user</p><p class="nx-step-b">Systems, data, access and constraints on one side; interviews, journeys and friction maps on the other.</p><p class="nx-lens"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13c4 0 5-3 7-6s3-4 5-4"/><path d="M10 3h4v4"/></svg><span><em>Scale lens</em>What breaks at ten times the people or data?</span></p></li>
+          <li class="nx-step" style="--c:#a888ff"><span class="nx-node-orb" style="--c:#a888ff">01</span><h3 class="nx-step-t">Foundation</h3><p class="nx-step-sub">Fix the costliest friction</p><p class="nx-step-b">The highest-friction point fixed first, using the tools you already own.</p><p class="nx-lens"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13c4 0 5-3 7-6s3-4 5-4"/><path d="M10 3h4v4"/></svg><span><em>Scale lens</em>Architecture sized for where you’re headed, not just today.</span></p></li>
+          <li class="nx-step" style="--c:#38d6f5"><span class="nx-node-orb" style="--c:#38d6f5">02</span><h3 class="nx-step-t">Connect</h3><p class="nx-step-sub">MCP, automation, Zero UI</p><p class="nx-step-b">Systems linked so AI and automations work inside the tools your people already use.</p><p class="nx-lens"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13c4 0 5-3 7-6s3-4 5-4"/><path d="M10 3h4v4"/></svg><span><em>Scale lens</em>More users and lanes added without a rebuild.</span></p></li>
+          <li class="nx-step" style="--c:#6a82ff"><span class="nx-node-orb" style="--c:#6a82ff">03</span><h3 class="nx-step-t">Expand</h3><p class="nx-step-sub">Grow as gates clear</p><p class="nx-step-b">New capabilities added as approvals land and needs grow — measured, refined and handed off.</p><p class="nx-lens"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13c4 0 5-3 7-6s3-4 5-4"/><path d="M10 3h4v4"/></svg><span><em>Scale lens</em>Grows with your headcount, not your headaches.</span></p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Design principles -->
+    <section class="nx-section">
+      <div class="nx-head nx-reveal">
+        <p class="nx-eyebrow is-violet">How we design</p>
+        <h2 class="nx-h2">A complete solution in as few products as possible.</h2>
+        <p class="nx-lead">Every new tool is another login, another bill and another thing to train. We design the other way around.</p>
+      </div>
+      <div class="nx-grid is-4">
+        <article class="nx-card nx-reveal" style="--c:#e8c34a">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 34c6 0 7-12 13-12s6 8 11 8 6-16 14-16"/><circle cx="18" cy="22" r="3.5"/><circle cx="35.5" cy="20" r="2.2" opacity=".6"/><path d="M5 42h38" opacity=".4"/></svg></span>
+          <p class="nx-k">Friction mapping</p>
+          <h3 class="nx-t">We find where work gets stuck.</h3>
+          <p class="nx-b">Every handoff, re-entry and wait mapped across people and systems. Then we fix the costliest friction first.</p>
+        </article>
+        <article class="nx-card nx-reveal" style="--c:#a888ff; --d:.06s">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="7"/><circle cx="8" cy="10" r="3.5"/><circle cx="40" cy="10" r="3.5"/><circle cx="8" cy="38" r="3.5"/><circle cx="40" cy="38" r="3.5"/><path d="M10.5 12.5c5 5 6 6 8.5 6.8M37.5 12.5c-5 5-6 6-8.5 6.8M10.5 35.5c5-5 6-6 8.5-6.8M37.5 35.5c-5-5-6-6-8.5-6.8"/></svg></span>
+          <p class="nx-k">MCP connections</p>
+          <h3 class="nx-t">Connect, don’t replace.</h3>
+          <p class="nx-b">Model Context Protocol lets assistants like Claude or ChatGPT safely work with the tools you already have, with approvals you control.</p>
+        </article>
+        <article class="nx-card nx-reveal" style="--c:#38d6f5; --d:.12s">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14c0-3 2.5-5 5.5-5h21c3 0 5.5 2 5.5 5v12c0 3-2.5 5-5.5 5H22l-8 7v-7h-.5C10.5 31 8 29 8 26z"/><path d="M17 20h14M17 25h8" opacity=".7"/></svg></span>
+          <p class="nx-k">Zero UI</p>
+          <h3 class="nx-t">No new app to learn.</h3>
+          <p class="nx-b">Faceless interfaces: work happens in plain English inside the chat, email and tools your team already lives in.</p>
+        </article>
+        <article class="nx-card nx-reveal" style="--c:#6a82ff; --d:.18s">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="14" height="14" rx="4" opacity=".45"/><rect x="28" y="8" width="14" height="14" rx="4" opacity=".45"/><rect x="6" y="26" width="14" height="14" rx="4" opacity=".45"/><path d="M28 33h14M35 26v14" opacity=".45"/><circle cx="24" cy="24" r="11"/><path d="M19.5 24l3 3 6-6.5"/></svg></span>
+          <p class="nx-k">Fewest products</p>
+          <h3 class="nx-t">One solution, not a stack of subscriptions.</h3>
+          <p class="nx-b">We consolidate and choose the fewest products that cover the whole job — so there’s less to pay for, learn and maintain.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Interactive map -->
+    <section class="nx-section" id="map">
+      <div class="nx-head nx-reveal">
+        <p class="nx-eyebrow">See it before you build it</p>
+        <h2 class="nx-h2">Explore a system — then see who it’s for.</h2>
+        <p class="nx-lead">Pick a sector and click any piece to see what it does. Flip to the user map to follow the person on the other end, and jump between the two.</p>
+      </div>
+      <div class="nx-map nx-reveal" data-system-map>
+        <div class="nx-map-bar">
+          <div class="nx-tabs" role="group" aria-label="Choose a sector"></div>
+          <div class="nx-switch" role="radiogroup" aria-label="Map view" data-view="system">
+            <button type="button" role="radio" aria-checked="true" data-view="system">System map</button>
+            <button type="button" role="radio" aria-checked="false" data-view="user">User map</button>
+            <span class="nx-switch-thumb" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="nx-map-body">
+          <div style="min-width:0">
+            <p class="nx-map-hint">Swipe sideways to see the whole map.</p>
+            <div class="nx-map-canvas">
+              <svg class="nx-map-svg" viewBox="0 0 1000 440" role="group" aria-label="Interactive map"></svg>
+            </div>
+            <p class="nx-map-brief"></p>
+          </div>
+          <aside class="nx-map-panel" aria-live="polite"></aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partnership models -->
+    <section class="nx-section" id="tiers">
+      <div class="nx-head nx-reveal">
+        <p class="nx-eyebrow is-violet">Ways to work together</p>
+        <h2 class="nx-h2">Three partnership models. One standard.</h2>
+        <p class="nx-lead">Choose how much you want to own — your proposal recommends a fit, or a blend. Every model gets the same people, rigor and honesty about trade-offs.</p>
+      </div>
+      <div class="nx-spectrum nx-reveal">
+        <div class="nx-spectrum-track"></div>
+        <div class="nx-spectrum-labels"><span>You run it</span><span>We run it</span></div>
+      </div>
+      <div class="nx-grid is-3">
+        <article class="nx-card nx-tier nx-reveal" style="--c:#a888ff">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M24 10v3M24 35v3M10 24h3M35 24h3"/><path d="M29 19l-3 7-7 3 3-7z"/></svg></span>
+          <p class="nx-k">Tier 1: Compass</p>
+          <h3 class="nx-t">Consulting</h3>
+          <p class="nx-tier-tag">We map it. You build it.</p>
+          <p class="nx-b">A technical advisor at your table — asking the right questions, mapping the system and handing you a plan your team can execute.</p>
+          <ul class="nx-list"><li>Discovery workshops and problem definition</li><li>System architecture and product roadmaps</li><li>Technology and vendor selection</li><li>Process maps and documentation</li></ul>
+          <div class="nx-tier-foot">
+            <p class="nx-best"><strong>Best for</strong> teams that want a clear plan before spending on engineering.</p>
+            <a class="nx-link" href="start.html" style="--c:#a888ff">Talk about Compass <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+        <article class="nx-card nx-tier nx-reveal" style="--c:#38d6f5; --d:.08s">
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 40l13-21c1-1.6 2.8-1.6 3.8 0L27 29l4.5-7c1-1.5 2.9-1.5 3.8 0L44 40"/><path d="M12 40c4-5 10-3 14-8" stroke-dasharray="2 4" opacity=".7"/></svg></span>
+          <p class="nx-k">Tier 2: Expedition</p>
+          <h3 class="nx-t">Hybrid build</h3>
+          <p class="nx-tier-tag">We build it in your stack. You own it.</p>
+          <p class="nx-b">Done-for-you implementation inside your infrastructure. You keep the accounts; we build, configure and hand it over production-ready.</p>
+          <ul class="nx-list"><li>Hands-on build and configuration</li><li>Automations, AI integrations and apps</li><li>Team onboarding and documentation</li><li>30-day post-launch support</li></ul>
+          <div class="nx-tier-foot">
+            <p class="nx-best"><strong>Best for</strong> teams that want it built without giving up ownership.</p>
+            <a class="nx-link" href="start.html" style="--c:#38d6f5">Talk about Expedition <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+        <article class="nx-card nx-tier nx-reveal" style="--c:#e8c34a; --d:.16s">
+          <span class="nx-soon">Coming soon</span>
+          <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><ellipse cx="24" cy="24" rx="8" ry="18"/><path d="M7 18c10 3 24 3 34 0M7 30c10-3 24-3 34 0"/></svg></span>
+          <p class="nx-k">Tier 3: Atlas</p>
+          <h3 class="nx-t">Full ownership</h3>
+          <p class="nx-tier-tag">We build it, host it and run it.</p>
+          <p class="nx-b">The end-to-end option. We carry the infrastructure and keep your product running, evolving and scaling, with a dedicated team behind it.</p>
+          <ul class="nx-list"><li>Hosting, AI keys and licensing handled</li><li>Full-stack application engineering</li><li>Ongoing maintenance and iteration</li><li>Dedicated product, engineering and AI support</li></ul>
+          <div class="nx-tier-foot">
+            <p class="nx-best"><strong>Best for</strong> organizations that want outcomes, not infrastructure.</p>
+            <a class="nx-link" href="start.html" style="--c:#e8c34a">Ask about Atlas <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="nx-section">
+      <div class="nx-head is-center nx-reveal">
+        <p class="nx-eyebrow is-cyan">Straight answers</p>
+        <h2 class="nx-h2">Questions we hear first.</h2>
+      </div>
+      <div class="nx-faq nx-reveal">
+        <details>
+          <summary>How is pricing handled?</summary>
+          <p>It all lives in your private proposal page: options, phases and costs tailored to your goals and budget, with pieces you can take on yourself to save. You see the full path before anything starts — no surprise invoices.</p>
+        </details>
+        <details>
+          <summary>Do you work with churches and nonprofits?</summary>
+          <p>Yes, it’s a big part of our work. Ministries and nonprofits get discounted rates for the same scope and the same standards everyone else gets.</p>
+        </details>
+        <details>
+          <summary>Who owns what you build?</summary>
+          <p>With Compass and Expedition, you do: accounts, code, keys and documentation. With Atlas, we steward the infrastructure while you get the product and a team behind it.</p>
+        </details>
+        <details>
+          <summary>What if I don’t know which model I need?</summary>
+          <p>That’s normal. Tell us the problem and we’ll recommend the lightest option that gets you there — even if that’s a few hours of advice.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="nx-cta nx-reveal">
+      <div class="nx-cta-art" aria-hidden="true">
+        <svg viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid slice">
+          <g fill="none" stroke-linecap="round">
+            <ellipse cx="500" cy="560" rx="560" ry="300" stroke="url(#nxFlowH)" stroke-width="1.2" opacity=".55"/>
+            <ellipse cx="500" cy="560" rx="440" ry="235" stroke="url(#nxFlowH)" stroke-width="1.2" opacity=".7"/>
+            <ellipse cx="500" cy="560" rx="320" ry="170" stroke="url(#nxFlowH)" stroke-width="1.4" opacity=".85"/>
+            <ellipse class="nx-travel is-slow" cx="500" cy="560" rx="440" ry="235" stroke="#fff" stroke-width="2.4" pathLength="100" filter="url(#nxBloom)" opacity=".8"/>
+            <ellipse class="nx-travel is-rev" cx="500" cy="560" rx="320" ry="170" stroke="#bff3ff" stroke-width="2" pathLength="100" opacity=".9"/>
+          </g>
+          <g>
+            <circle cx="148" cy="392" r="16" fill="#8b63e8" filter="url(#nxSoft)" opacity=".8"/><circle cx="148" cy="392" r="9" fill="url(#nxOrbV)"/>
+            
+            <circle cx="852" cy="392" r="16" fill="#38d6f5" filter="url(#nxSoft)" opacity=".8"/><circle cx="852" cy="392" r="9" fill="url(#nxOrbC)"/>
+          </g>
+        </svg>
+      </div>
+
+      <p class="nx-eyebrow is-cyan" style="justify-content:center">Not sure where to start?</p>
+      <h2 class="nx-h2">Start with the problem.</h2>
+      <p class="nx-lead">Tell us what’s tangled. We’ll reply within 1–2 business days with a straight answer on whether — and how — we can help.</p>
+      <div class="nx-btns">
+        <a class="nx-btn" href="start.html">Start a project</a>
+        <a class="nx-btn-ghost" href="contact.html">Contact us</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="nx-foot">
+    <p>&copy; 2026 Free Lancer Studios L.L.C. <a href="privacy.html">Privacy policy</a></p>
+  </footer>
 </body>
-<footer style="margin-top: 80px; padding: 40px 24px; border-top: 1px solid var(--border); text-align: center;">
-    <p style="font-size: 0.75rem; color: var(--text-subtle); letter-spacing: 0.05em;">
-        &copy; 2024 FREE LANCER STUDIOS — 
-        <a href="privacy.html" style="color: var(--text-muted); text-decoration: none; margin-left: 10px;">Privacy policy</a>
-    </p>
-</footer>
+</html>

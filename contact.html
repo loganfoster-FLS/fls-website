@@ -3,170 +3,148 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Lancer Studios</title>
+  <title>Contact | Free Lancer Studios</title>
+  <meta name="description" content="Questions, ideas or a quick fit check: send Free Lancer Studios a note and a real person will reply within 1–2 business days."/>
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/src/styles.css">
   <script type="module" src="/src/main.ts"></script>
+  <script type="module" src="/src/neon.ts"></script>
 </head>
 <body class="inner-page">
-    <!-- LEFT NAV: persistent on inner pages -->
-    <!-- Overlay to close nav on outside click -->
-    <div id="rail-overlay" onclick="collapseRail()"></div>
+  <!-- LEFT NAV: persistent on inner pages -->
+  <div id="rail-overlay" onclick="collapseRail()"></div>
+  <div id="icon-rail" class="visible">
+    <button class="rail-toggle" onclick="toggleRail()" title="Toggle menu" aria-label="Toggle navigation">
+      <svg class="icon-menu" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 4.5h14M2 9h14M2 13.5h14"/></svg>
+      <svg class="icon-close" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l10 10M14 4L4 14"/></svg>
+    </button>
+    <a class="rail-logo" href="index.html" title="Home">
+      <img src="fls-mark.webp" alt="Free Lancer Studios"/>
+      <div class="rail-brand-text">Free Lancer<br><span>Studios</span></div>
+    </a>
+    <ul class="rail-links">
+      <li><a class="rail-btn" href="index.html" id="rail-home">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5L9 2l7 6.5V16a.5.5 0 01-.5.5h-4v-4h-5v4h-4A.5.5 0 012 16V8.5z"/></svg>
+        <span class="rail-label">Home</span></a></li>
+      <li><div class="rail-divider"></div></li>
+      <li><span class="rail-section-label">Company</span></li>
+      <li><a class="rail-btn" href="about.html" id="rail-about">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="2.5"/><path d="M3.5 16c0-3.04 2.46-5.5 5.5-5.5s5.5 2.46 5.5 5.5"/></svg>
+        <span class="rail-label">About</span></a></li>
+      <li><a class="rail-btn" href="portfolio.html" id="rail-portfolio">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="10" rx="1.5"/><path d="M6 5V4a1 1 0 011-1h4a1 1 0 011 1v1"/></svg>
+        <span class="rail-label">Portfolio</span></a></li>
+      <li><a class="rail-btn" href="services.html" id="rail-services">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5h14M2 9h10M2 13.5h7"/></svg>
+        <span class="rail-label">Services</span></a></li>
+      <li><div class="rail-divider"></div></li>
+      <li><span class="rail-section-label">Start</span></li>
+      <li><a class="rail-btn" href="start.html" id="rail-start">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2l7 7-7 7M2 9h14"/></svg>
+        <span class="rail-label">Start a project</span></a></li>
+      <li><a class="rail-btn active" href="contact.html" id="rail-contact">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h14v12H2z"/><path d="M2 5l7 5 7-5"/></svg>
+        <span class="rail-label">Contact</span></a></li>
+    </ul>
+    <a href="start.html" class="rail-cta">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2l7 7-7 7M2 9h14"/></svg>
+      <span class="rail-cta-label">Start a project</span>
+    </a>
+  </div>
 
-    <div id="icon-rail" class="visible">
-        <!-- Hamburger toggle -->
-        <button class="rail-toggle" onclick="toggleRail()" title="Toggle menu" aria-label="Toggle navigation">
-        <svg class="icon-menu" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M2 4.5h14M2 9h14M2 13.5h14"/>
-        </svg>
-        <svg class="icon-close" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M4 4l10 10M14 4L4 14"/>
-        </svg>
-        </button>
+  <div class="nx-ambient" aria-hidden="true"><span></span><span></span><span></span></div>
+  <!-- shared neon gradients -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="nxFlow" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a888ff"/><stop offset=".5" stop-color="#e8c34a"/><stop offset="1" stop-color="#38d6f5"/>
+      </linearGradient>
+      <linearGradient id="nxFlowV" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#a888ff"/><stop offset=".55" stop-color="#6b5cf0"/><stop offset="1" stop-color="#38d6f5"/>
+      </linearGradient>
+      <linearGradient id="nxFlowH" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#8b63e8" stop-opacity="0"/><stop offset=".25" stop-color="#a888ff"/><stop offset=".6" stop-color="#38d6f5"/><stop offset="1" stop-color="#38d6f5" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="nxRibbonFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8b4dff" stop-opacity=".55"/><stop offset=".55" stop-color="#4b4fe8" stop-opacity=".35"/><stop offset="1" stop-color="#23aeca" stop-opacity=".5"/>
+      </linearGradient>
+      <radialGradient id="nxOrbV" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#d6c6ff"/><stop offset=".45" stop-color="#6a45f0"/><stop offset="1" stop-color="#2c1878"/></radialGradient>
+      <radialGradient id="nxOrbG" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#fff3c8"/><stop offset=".45" stop-color="#eec850"/><stop offset="1" stop-color="#a67c1c"/></radialGradient>
+      <radialGradient id="nxOrbC" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#d0f6ff"/><stop offset=".45" stop-color="#2bc2e0"/><stop offset="1" stop-color="#0a6a86"/></radialGradient>
+      <radialGradient id="nxOrbN" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#dfe5ff"/><stop offset=".45" stop-color="#5068f0"/><stop offset="1" stop-color="#1b2470"/></radialGradient>
+      <filter id="nxSoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="9"/></filter>
+      <filter id="nxBloom" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+    </defs>
+  </svg>
 
-        <div class="rail-logo" onclick="goHome()" title="Home">
-        <img src="fls-mark.webp" alt="Free Lancer Studios"/>
-        <div class="rail-brand-text">Free Lancer<br><span>Studios</span></div>
+  <!-- ── CONTACT ── -->
+  <main class="nx" id="page-contact">
+    <section class="nx-formwrap">
+
+      <aside class="nx-aside nx-reveal">
+        <p class="nx-eyebrow">Contact us</p>
+        <h1 class="nx-h1">Let’s talk <span class="nx-glow">shop.</span></h1>
+        <p class="nx-sub">A quick question, an idea that isn’t fully formed or just checking if we’re a good fit — send a note and a real person will reply.</p>
+        <div class="nx-assure">
+          <p><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M8 4.8V8l2.2 1.4"/></svg>Replies within 1–2 business days.</p>
+          <p><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="9" height="6.5" rx="2"/><path d="M5.5 7V5.3a2.5 2.5 0 015 0V7"/></svg>Everything you share stays confidential.</p>
+          <p><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.3l3 3 7-7"/></svg>First conversations are always free.</p>
         </div>
+        <p class="nx-alt">Already have a project in mind? <a href="start.html">Send a project brief</a> and we’ll come back with next steps toward your private proposal.</p>
+      </aside>
 
-        <ul class="rail-links">
-            <li>
-                <a class="rail-btn" href="index.html" id="rail-home">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 8.5L9 2l7 6.5V16a.5.5 0 01-.5.5h-4v-4h-5v4h-4A.5.5 0 012 16V8.5z"/>
-                </svg>
-                <span class="rail-label">Home</span>
-                </a>
-            </li>
+      <div class="nx-card nx-form-card nx-reveal" style="--c:#a888ff; --d:.1s">
+        <form id="contact-form" class="nx-form">
+          <input type="hidden" name="form_type" value="contact">
 
-            <li><div class="rail-divider"></div></li>
-            <li><span class="rail-section-label">Company</span></li>
-
-            <li>
-                <a class="rail-btn" href="about.html" id="rail-about">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="6" r="2.5"/>
-                    <path d="M3.5 16c0-3.04 2.46-5.5 5.5-5.5s5.5 2.46 5.5 5.5"/>
-                </svg>
-                <span class="rail-label">About</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="rail-btn" href="portfolio.html" id="rail-portfolio">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="5" width="14" height="10" rx="1.5"/>
-                    <path d="M6 5V4a1 1 0 011-1h4a1 1 0 011 1v1"/>
-                </svg>
-                <span class="rail-label">Portfolio</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="rail-btn" href="services.html" id="rail-services">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 4.5h14M2 9h10M2 13.5h7"/>
-                </svg>
-                <span class="rail-label">Services</span>
-                </a>
-            </li>
-
-            <li><div class="rail-divider"></div></li>
-            <li><span class="rail-section-label">Start</span></li>
-
-            <li>
-                <a class="rail-btn" href="start.html" id="rail-start">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 2l7 7-7 7M2 9h14"/>
-                </svg>
-                <span class="rail-label">Start a project</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="rail-btn active" href="contact.html" id="rail-contact">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 3h14v12H2z"/>
-                    <path d="M2 5l7 5 7-5"/>
-                </svg>
-                <span class="rail-label">Contact</span>
-                </a>
-            </li>
-        </ul>
-        <a href="start.html" class="rail-cta">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 2l7 7-7 7M2 9h14"/>
-          </svg>
-          <span class="rail-cta-label">Start a project</span>
-        </a>
-    </div>
-
-    <div class="start-wrap">
-        <div class="start-header">
-            <div class="start-label">Contact Us</div>
-            <h1 class="start-title">Let’s talk shop.</h1>
-            <p class="start-subtitle">
-                Unsure where to start? Have a quick question? Or just want to see if we're a good fit? 
-                Drop a note below and we'll help you figure it out.
-            </p>
-        </div>
-
-        <form id="contact-form">
-            <input type="hidden" name="form_type" value="contact">
-            <div class="form-section">
-                <div class="form-section-label">The basics</div>
-                <div class="field-row">
-                    <div class="field-group">
-                        <label class="field-label" for="field-name">Name</label>
-                        <input class="field-input" type="text" id="field-name" name="name" placeholder="Who are we speaking with?" required />
-                    </div>
-                    <div class="field-group">
-                        <label class="field-label" for="field-email">Email</label>
-                        <input class="field-input" type="email" id="field-email" name="email" placeholder="Where should we reply?" required />
-                    </div>
-                </div>
+          <div class="form-section" style="--sc:#e8c34a">
+            <div class="form-section-label">The basics</div>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="field-name">Name <span class="req">*</span></label>
+                <input class="field-input" type="text" id="field-name" name="name" placeholder="Who are we speaking with?" autocomplete="name" required />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="field-email">Email <span class="req">*</span></label>
+                <input class="field-input" type="email" id="field-email" name="email" placeholder="Where should we reply?" autocomplete="email" required />
+              </div>
             </div>
+          </div>
 
-            <div class="form-section">
-                <div class="form-section-label">How can we help?</div>
-                <div class="field-row single">
-                    <div class="field-group">
-                        <textarea class="field-textarea" id="field-message" name="message" placeholder="What's on your mind? No pressure, just the details you're comfortable sharing for now." required></textarea>
-                    </div>
-                </div>
+          <div class="form-section" style="--sc:#a888ff">
+            <div class="form-section-label">How can we help?</div>
+            <div class="field-row single">
+              <div class="field-group">
+                <label class="field-label" for="field-message">Your message <span class="req">*</span></label>
+                <textarea class="field-textarea" id="field-message" name="message" placeholder="What’s on your mind? Share as much or as little as you’re comfortable with for now." required></textarea>
+              </div>
             </div>
-            <div class="form-section" style="margin-top: 40px;">
-                    <div class="form-section-label">Legal notice</div>
-                    <div style="background: rgba(255, 255, 255, 0.03); border-left: 2px solid var(--border); padding: 16px; margin-bottom: 20px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
-                        Submitting this form does not establish an official agreement or binding contract 
-                        between the submitter and Free Lancer Studios L.L.C. This inquiry is for informational purposes only; 
-                        all initial consultations are free of charge until a formal Scope of Work is signed. All shared 
-                        information is treated as confidential and subject to mutual NDA. Your brand, data, and intellectual 
-                        property will not be represented or listed by Free Lancer Studios L.L.C. without prior written consent.
-                    </div>
+          </div>
 
-                    <label class="checkbox-container" style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer;">
-                        <input type="checkbox" id="legal-acknowledge" name="legal_acknowledge" required style="margin-top: 4px; transform: scale(1.2);">
-                        <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
-                            I acknowledge that I have read the Legal Notice above and understand that this submission does not constitute a binding contract.
-                        </span>
-                    </label>
-                </div>
-            <div class="submit-row">
-                <button class="btn-primary" type="submit">Send message</button>
-                <p class="submit-note">
-                    <strong>Friendly & Fast.</strong><br>
-                    Expect a response within two business days.
-                </p>
-            </div>
+          <div class="form-section" style="--sc:#38d6f5; margin-bottom:0">
+            <div class="form-section-label">Legal notice</div>
+            <p class="nx-legal">Submitting this form does not establish an official agreement or binding contract between the submitter and Free Lancer Studios L.L.C. This inquiry is for informational purposes only; all initial consultations are free of charge until a formal Scope of Work is signed. All shared information is treated as confidential and subject to mutual NDA. Your brand, data, and intellectual property will not be represented or listed by Free Lancer Studios L.L.C. without prior written consent.</p>
+            <label class="nx-check">
+              <input type="checkbox" id="legal-acknowledge" name="legal_acknowledge" required>
+              <span>I’ve read the legal notice and understand this submission is not a binding contract.</span>
+            </label>
+          </div>
+
+          <div class="nx-submit">
+            <button class="nx-btn" type="submit">Send message</button>
+            <p><strong>Friendly and fast.</strong><br>Expect a reply within 1–2 business days.</p>
+          </div>
         </form>
-    </div>
+      </div>
 
-<footer style="margin-top: 80px; padding: 40px 24px; border-top: 1px solid var(--border); text-align: center;">
-    <p style="font-size: 0.75rem; color: var(--text-subtle); letter-spacing: 0.05em;">
-        &copy; 2026 FREE LANCER STUDIOS — 
-        <a href="privacy.html" style="color: var(--text-muted); text-decoration: none; margin-left: 10px;">Privacy policy</a>
-    </p>
-</footer>
+    </section>
+  </main>
+
+  <footer class="nx-foot">
+    <p>&copy; 2026 Free Lancer Studios L.L.C. <a href="privacy.html">Privacy policy</a></p>
+  </footer>
+</body>
+</html>

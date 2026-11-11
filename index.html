@@ -3,14 +3,40 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Lancer Studios</title>
+  <title>Free Lancer Studios | Human-centered technology studio</title>
+  <meta name="description" content="Free Lancer Studios turns ambiguous problems into clear, usable systems: AI strategy, automation, product engineering and search visibility, built to be owned."/>
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/src/styles.css">
   <script type="module" src="/src/main.ts"></script>
+  <script type="module" src="/src/neon.ts"></script>
 </head>
-<body>
+<body class="home">
+  <!-- shared neon gradients -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="nxFlow" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a888ff"/><stop offset=".5" stop-color="#e8c34a"/><stop offset="1" stop-color="#38d6f5"/>
+      </linearGradient>
+      <linearGradient id="nxFlowV" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#a888ff"/><stop offset=".55" stop-color="#6b5cf0"/><stop offset="1" stop-color="#38d6f5"/>
+      </linearGradient>
+      <linearGradient id="nxFlowH" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#8b63e8" stop-opacity="0"/><stop offset=".25" stop-color="#a888ff"/><stop offset=".6" stop-color="#38d6f5"/><stop offset="1" stop-color="#38d6f5" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="nxRibbonFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8b4dff" stop-opacity=".55"/><stop offset=".55" stop-color="#4b4fe8" stop-opacity=".35"/><stop offset="1" stop-color="#23aeca" stop-opacity=".5"/>
+      </linearGradient>
+      <radialGradient id="nxOrbV" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#d6c6ff"/><stop offset=".45" stop-color="#6a45f0"/><stop offset="1" stop-color="#2c1878"/></radialGradient>
+      <radialGradient id="nxOrbG" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#fff3c8"/><stop offset=".45" stop-color="#eec850"/><stop offset="1" stop-color="#a67c1c"/></radialGradient>
+      <radialGradient id="nxOrbC" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#d0f6ff"/><stop offset=".45" stop-color="#2bc2e0"/><stop offset="1" stop-color="#0a6a86"/></radialGradient>
+      <radialGradient id="nxOrbN" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#dfe5ff"/><stop offset=".45" stop-color="#5068f0"/><stop offset="1" stop-color="#1b2470"/></radialGradient>
+      <filter id="nxSoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="9"/></filter>
+      <filter id="nxBloom" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+    </defs>
+  </svg>
 
 
   <!-- TOP NAV -->
@@ -21,10 +47,11 @@
     </a>
     <ul class="top-nav-links">
       <li><button onclick="goHome()" id="top-home">Home</button></li>
-      <li><a href="about.html" id="top-about">About</a></li>
-      <li><a href="portfolio.html" id="top-about">Portfolio</a></li>
-      <li><a href="services.html" id="top-about">Services</a></li>
-      <a href="start.html" class="top-nav-cta">Start a project</a>    </ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="start.html" class="top-nav-cta">Start a project</a></li>
+    </ul>
   </nav>
 
 
@@ -43,16 +70,16 @@
           <div class="h-orb h-orb-3"></div>
         </div>
         <div class="home-content">
-          <p class="home-eyebrow">Human-centered technology studio</p>
+          <p class="nx-eyebrow">Human-centered technology studio</p>
           <h1 class="home-title">
             <span class="t1">Complex ideas.</span>
             <span class="t2">Scalable systems.</span>
-            <span class="t3">Real results.</span>
+            <span class="t3 nx-glow">Real results.</span>
           </h1>
           <p class="home-sub">We turn ambiguous problems into clear, usable digital products — from first prototype to production-grade software, automation, and AI systems.</p>
           <div class="home-btns">
-            <a href="start.html" class="btn-primary">Start a project</a>
-            <a href="portfolio.html" class="btn-ghost">View our work</a>
+            <a href="start.html" class="nx-btn">Start a project</a>
+            <a href="portfolio.html" class="nx-btn-ghost">View our work</a>
           </div>
         </div>
         <div class="home-logo-panel">
@@ -100,57 +127,119 @@
                   </g>
                 </g>
               </svg>
+              <svg class="fls-mark-neon" viewBox="0 0 496 620" aria-hidden="true">
+                <path id="homeRibbon" pathLength="100" d="M144.0,148.2 C140.1,141.9 136.6,135.6 134.2,129.2 C131.8,122.8 130.1,116.5 129.6,110.0 C129.1,103.5 129.5,96.6 131.0,90.2 C132.5,83.8 135.3,77.4 138.6,71.8 C141.9,66.2 146.1,61.0 150.8,56.6 C155.5,52.2 161.1,48.4 167.0,45.6 C172.9,42.8 179.5,40.7 186.0,40.0 C192.5,39.3 199.5,39.8 205.8,41.4 C212.1,43.0 218.3,45.9 223.8,49.4 C229.3,52.9 234.4,57.3 239.0,62.2 C243.6,67.1 247.5,72.8 251.2,78.8 C254.9,84.8 258.1,91.5 261.0,98.0 C263.9,104.5 266.2,111.3 268.6,118.0 C271.0,124.7 273.2,131.3 275.6,138.0 C278.0,144.7 280.4,151.3 283.2,158.0 C286.0,164.7 289.1,171.3 292.4,178.0 C295.7,184.7 299.1,191.4 303.0,198.0 C306.9,204.6 311.1,211.3 315.8,217.8 C320.5,224.3 325.7,230.7 331.0,237.2 C336.3,243.7 342.4,250.1 347.8,256.6 C353.2,263.1 358.7,269.5 363.4,276.0 C368.1,282.5 372.8,288.9 376.2,295.4 C379.6,301.9 382.6,308.4 384.0,315.0 C385.4,321.6 385.8,328.4 384.8,335.0 C383.8,341.6 381.3,348.1 378.2,354.4 C375.1,360.7 370.9,366.8 366.2,372.8 C361.5,378.8 355.8,384.4 350.0,390.2 C344.2,396.0 337.4,401.8 331.2,407.6 C325.0,413.4 318.5,419.1 312.8,425.0 C307.1,430.9 301.7,436.8 297.0,443.0 C292.3,449.2 287.9,455.5 284.4,462.0 C280.9,468.5 278.0,475.3 275.8,482.0 C273.6,488.7 272.4,495.3 271.4,502.0 C270.4,508.7 270.1,515.3 269.6,522.0 C269.1,528.7 269.2,535.8 268.2,542.0 C267.2,548.2 265.8,554.2 263.6,559.2 C261.4,564.2 258.6,568.6 255.0,571.8 C251.4,575.0 247.0,577.4 242.0,578.6 C237.0,579.8 231.1,580.1 225.0,578.8 C218.9,577.5 211.6,574.5 205.4,571.0 C199.2,567.5 193.2,562.9 187.8,558.0 C182.4,553.1 177.3,547.4 173.0,541.6 C168.7,535.8 164.9,529.4 162.0,523.0 C159.1,516.6 156.9,509.7 155.6,503.0 C154.3,496.3 153.9,489.7 154.2,483.0 C154.5,476.3 155.6,469.7 157.4,463.0 C159.2,456.3 161.8,449.7 165.0,443.0 C168.2,436.3 172.2,429.7 176.4,423.0 C180.6,416.3 185.5,409.7 190.2,403.0 C194.9,396.3 200.1,389.7 204.8,383.0 C209.5,376.3 214.2,369.7 218.2,363.0 C222.2,356.3 226.1,349.7 229.0,343.0 C231.9,336.3 234.2,329.7 235.8,323.0 C237.4,316.3 238.3,309.7 238.6,303.0 C238.9,296.3 238.5,289.7 237.4,283.0 C236.3,276.3 234.5,269.7 232.0,263.0 C229.5,256.3 226.1,249.6 222.2,243.0 C218.3,236.4 213.8,229.9 208.8,223.4 C203.8,216.9 198.1,210.3 192.4,204.0 C186.7,197.7 180.6,191.6 174.8,185.4 C169.0,179.2 162.9,173.0 157.8,166.8 C152.7,160.6 147.9,154.5 144.0,148.2Z" fill="none"/>
+                <use href="#homeRibbon" class="fls-neon-line nx-glowline" style="--gc:rgba(168,136,255,.95)" stroke="url(#nxFlowV)" stroke-width="2.6"/>
+                <use href="#homeRibbon" class="fls-neon-travel nx-travel" stroke="#fff" stroke-width="3.6"/>
+                <circle class="fls-neon-ring nx-glowline" style="--gc:rgba(232,195,74,.95)" pathLength="100" cx="415.5" cy="86.5" r="59" stroke="#ffe08a"/>
+                <circle class="fls-neon-ring nx-glowline" style="--gc:rgba(168,136,255,.95)" pathLength="100" cx="86" cy="283.5" r="67" stroke="#c3adff"/>
+                <circle class="fls-neon-ring nx-glowline" style="--gc:rgba(56,214,245,.95)" pathLength="100" cx="415.5" cy="482" r="59" stroke="#8eeaff"/>
+              </svg>
             </div>
             <p class="fls-mark-cap">Separate pieces, made to flow.</p>
           </div>
         </div>
+        <div class="home-scroll-hint" aria-hidden="true"><span></span>Scroll</div>
       </div>
       </div><!-- /hero-scrolly -->
 
       <section class="forces">
-        <p class="forces-eyebrow">The three forces</p>
-        <h2 class="forces-title">The pieces don’t just look good together.</h2>
-        <p class="forces-lead">Each one is something we bring to every engagement — the same three you just watched come into flow.</p>
-        <div class="forces-grid">
-          <article class="force force-gold">
-            <span class="force-orb" aria-hidden="true"></span>
-            <p class="force-label">Context</p>
-            <h3 class="force-head">We learn your world first.</h3>
-            <p class="force-body">Constraints, history, how the work actually happens — the context everything else turns on.</p>
+        <div class="nx-head nx-reveal">
+          <p class="nx-eyebrow is-cyan">The three forces</p>
+          <h2 class="nx-h2">The pieces don’t just look good together.</h2>
+          <p class="nx-lead">Each one is something we bring to every engagement — the same three you just watched come into flow.</p>
+        </div>
+        <div class="nx-grid is-3">
+          <article class="nx-card nx-reveal" style="--c:#e8c34a">
+            <span class="home-orb" style="background:radial-gradient(circle at 36% 30%, #fff3c8, #eec850 45%, #a67c1c)"></span>
+            <p class="nx-k">Context</p>
+            <h3 class="nx-t">We learn your world first.</h3>
+            <p class="nx-b">Constraints, history, how the work actually happens — the context everything else turns on.</p>
           </article>
-          <article class="force force-violet">
-            <span class="force-orb" aria-hidden="true"></span>
-            <p class="force-label">Clarity</p>
-            <h3 class="force-head">We make the path visible.</h3>
-            <p class="force-body">Scoped, sequenced, documented — so everyone sees where it’s going and why.</p>
+          <article class="nx-card nx-reveal" style="--c:#a888ff; --d:.08s">
+            <span class="home-orb" style="background:radial-gradient(circle at 36% 30%, #d6c6ff, #6a45f0 45%, #2c1878)"></span>
+            <p class="nx-k">Clarity</p>
+            <h3 class="nx-t">We make the path visible.</h3>
+            <p class="nx-b">Scoped, sequenced, documented — so everyone sees where it’s going and why.</p>
           </article>
-          <article class="force force-cyan">
-            <span class="force-orb" aria-hidden="true"></span>
-            <p class="force-label">Energy</p>
-            <h3 class="force-head">We bring the momentum.</h3>
-            <p class="force-body">Hands-on alongside your team, so it ships — and keeps moving after we’ve gone.</p>
+          <article class="nx-card nx-reveal" style="--c:#38d6f5; --d:.16s">
+            <span class="home-orb" style="background:radial-gradient(circle at 36% 30%, #d0f6ff, #2bc2e0 45%, #0a6a86)"></span>
+            <p class="nx-k">Energy</p>
+            <h3 class="nx-t">We bring the momentum.</h3>
+            <p class="nx-b">Hands-on alongside your team, so it ships — and keeps moving after we’ve gone.</p>
           </article>
         </div>
       </section>
 
-      <div class="home-stats">
-        <div class="stat-item">
-          <div class="stat-num">6<span>+</span></div>
-          <div class="stat-label">Client engagements</div>
+      <section class="forces home-what">
+        <div class="home-what-head nx-reveal">
+          <div>
+            <p class="nx-eyebrow">What we do</p>
+            <h2 class="nx-h2">Strategy you can act on. Systems you can own.</h2>
+          </div>
+          <a class="nx-link" href="services.html#map">Explore an interactive system map <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
-        <div class="stat-item">
-          <div class="stat-num"><span>T</span>1–3</div>
-          <div class="stat-label">Engagement tiers</div>
+        <div class="nx-grid is-4">
+          <a class="nx-card home-cap nx-reveal" href="services.html" style="--c:#a888ff">
+            <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M31 17l-4.5 9.5L17 31l4.5-9.5z"/></svg></span>
+            <h3 class="nx-t">AI strategy &amp; enablement</h3>
+            <p class="nx-b">Know where AI pays off, and use it well.</p>
+          </a>
+          <a class="nx-card home-cap nx-reveal" href="services.html" style="--c:#38d6f5; --d:.06s">
+            <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="11" r="4"/><circle cx="9" cy="37" r="4"/><circle cx="39" cy="24" r="5"/><path d="M13 11c12 0 10 13 21 13M13 37c12 0 10-13 21-13"/></svg></span>
+            <h3 class="nx-t">Automation &amp; MCP</h3>
+            <p class="nx-b">Hand the busywork to systems you can see.</p>
+          </a>
+          <a class="nx-card home-cap nx-reveal" href="services.html" style="--c:#e8c34a; --d:.12s">
+            <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 7l17 8.5L24 24 7 15.5z"/><path d="M7 24l17 8.5L41 24"/><path d="M7 32.5L24 41l17-8.5"/></svg></span>
+            <h3 class="nx-t">Product &amp; engineering</h3>
+            <p class="nx-b">Ship the thing, and keep it running.</p>
+          </a>
+          <a class="nx-card home-cap nx-reveal" href="services.html" style="--c:#6a82ff; --d:.18s">
+            <span class="nx-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="21" r="13"/><path d="M31 31l10 10"/><path d="M21 14.5l1.7 4.8 4.8 1.7-4.8 1.7-1.7 4.8-1.7-4.8-4.8-1.7 4.8-1.7z"/></svg></span>
+            <h3 class="nx-t">Search &amp; AI visibility</h3>
+            <p class="nx-b">Get found by people and the AI they ask.</p>
+          </a>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">100<span>%</span></div>
-          <div class="stat-label">Ownership possible</div>
+      </section>
+
+      <section class="forces">
+        <div class="home-stats nx-reveal">
+          <div class="stat-item" style="--c:#e8c34a"><div class="stat-num">6<span>+</span></div><div class="stat-label">Client engagements</div></div>
+          <div class="stat-item" style="--c:#a888ff"><div class="stat-num">4</div><div class="stat-label">Sectors served</div></div>
+          <div class="stat-item" style="--c:#38d6f5"><div class="stat-num">3</div><div class="stat-label">Ways to partner</div></div>
+          <div class="stat-item" style="--c:#6a82ff"><div class="stat-num">100<span>%</span></div><div class="stat-label">Yours to own</div></div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Build → ship → scale</div>
-        </div>
+      </section>
+
+      <section class="forces">
+        <div class="nx-cta nx-reveal" style="margin-top:20px">
+          <div class="nx-cta-art" aria-hidden="true">
+        <svg viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid slice">
+          <g fill="none" stroke-linecap="round">
+            <ellipse cx="500" cy="560" rx="560" ry="300" stroke="url(#nxFlowH)" stroke-width="1.2" opacity=".55"/>
+            <ellipse cx="500" cy="560" rx="440" ry="235" stroke="url(#nxFlowH)" stroke-width="1.2" opacity=".7"/>
+            <ellipse cx="500" cy="560" rx="320" ry="170" stroke="url(#nxFlowH)" stroke-width="1.4" opacity=".85"/>
+            <ellipse class="nx-travel is-slow" cx="500" cy="560" rx="440" ry="235" stroke="#fff" stroke-width="2.4" pathLength="100" filter="url(#nxBloom)" opacity=".8"/>
+            <ellipse class="nx-travel is-rev" cx="500" cy="560" rx="320" ry="170" stroke="#bff3ff" stroke-width="2" pathLength="100" opacity=".9"/>
+          </g>
+          <g>
+            <circle cx="148" cy="392" r="16" fill="#8b63e8" filter="url(#nxSoft)" opacity=".8"/><circle cx="148" cy="392" r="9" fill="url(#nxOrbV)"/>
+            
+            <circle cx="852" cy="392" r="16" fill="#38d6f5" filter="url(#nxSoft)" opacity=".8"/><circle cx="852" cy="392" r="9" fill="url(#nxOrbC)"/>
+          </g>
+        </svg>
       </div>
+
+          <p class="nx-eyebrow is-cyan" style="justify-content:center">It starts with a conversation</p>
+          <h2 class="nx-h2">Bring us the tangled part.</h2>
+          <p class="nx-lead">Tell us what you’re working on. We’ll follow up with a private proposal built around your goals and budget.</p>
+          <div class="nx-btns">
+            <a class="nx-btn" href="start.html">Start a project</a>
+            <a class="nx-btn-ghost" href="services.html">Explore services</a>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
   <script>
@@ -176,11 +265,8 @@
     window.addEventListener('resize', update);
   })();
   </script>
+  <footer class="nx-foot">
+    <p>&copy; 2026 Free Lancer Studios L.L.C. <a href="privacy.html">Privacy policy</a></p>
+  </footer>
 </body>
-<footer style="margin-top: 80px; padding: 40px 24px; border-top: 1px solid var(--border); text-align: center;">
-    <p style="font-size: 0.75rem; color: var(--text-subtle); letter-spacing: 0.05em;">
-        &copy; 2026 FREE LANCER STUDIOS L.L.C. — 
-        <a href="privacy.html" style="color: var(--text-muted); text-decoration: none; margin-left: 10px;">Privacy policy</a>
-    </p>
-</footer>
 </html>

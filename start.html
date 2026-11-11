@@ -3,339 +3,205 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Lancer Studios</title>
+  <title>Start a project | Free Lancer Studios</title>
+  <meta name="description" content="Send a project brief to Free Lancer Studios. We talk, then build you a private proposal page tailored to your goals and budget."/>
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/src/styles.css">
   <script type="module" src="/src/main.ts"></script>
+  <script type="module" src="/src/neon.ts"></script>
 </head>
 <body class="inner-page">
-    <!-- LEFT NAV: persistent on inner pages -->
-    <!-- Overlay to close nav on outside click -->
-    <div id="rail-overlay" onclick="collapseRail()"></div>
+  <!-- LEFT NAV: persistent on inner pages -->
+  <div id="rail-overlay" onclick="collapseRail()"></div>
+  <div id="icon-rail" class="visible">
+    <button class="rail-toggle" onclick="toggleRail()" title="Toggle menu" aria-label="Toggle navigation">
+      <svg class="icon-menu" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 4.5h14M2 9h14M2 13.5h14"/></svg>
+      <svg class="icon-close" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l10 10M14 4L4 14"/></svg>
+    </button>
+    <a class="rail-logo" href="index.html" title="Home">
+      <img src="fls-mark.webp" alt="Free Lancer Studios"/>
+      <div class="rail-brand-text">Free Lancer<br><span>Studios</span></div>
+    </a>
+    <ul class="rail-links">
+      <li><a class="rail-btn" href="index.html" id="rail-home">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5L9 2l7 6.5V16a.5.5 0 01-.5.5h-4v-4h-5v4h-4A.5.5 0 012 16V8.5z"/></svg>
+        <span class="rail-label">Home</span></a></li>
+      <li><div class="rail-divider"></div></li>
+      <li><span class="rail-section-label">Company</span></li>
+      <li><a class="rail-btn" href="about.html" id="rail-about">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="2.5"/><path d="M3.5 16c0-3.04 2.46-5.5 5.5-5.5s5.5 2.46 5.5 5.5"/></svg>
+        <span class="rail-label">About</span></a></li>
+      <li><a class="rail-btn" href="portfolio.html" id="rail-portfolio">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="10" rx="1.5"/><path d="M6 5V4a1 1 0 011-1h4a1 1 0 011 1v1"/></svg>
+        <span class="rail-label">Portfolio</span></a></li>
+      <li><a class="rail-btn" href="services.html" id="rail-services">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5h14M2 9h10M2 13.5h7"/></svg>
+        <span class="rail-label">Services</span></a></li>
+      <li><div class="rail-divider"></div></li>
+      <li><span class="rail-section-label">Start</span></li>
+      <li><a class="rail-btn active" href="start.html" id="rail-start">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2l7 7-7 7M2 9h14"/></svg>
+        <span class="rail-label">Start a project</span></a></li>
+      <li><a class="rail-btn" href="contact.html" id="rail-contact">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h14v12H2z"/><path d="M2 5l7 5 7-5"/></svg>
+        <span class="rail-label">Contact</span></a></li>
+    </ul>
+    <a href="start.html" class="rail-cta">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2l7 7-7 7M2 9h14"/></svg>
+      <span class="rail-cta-label">Start a project</span>
+    </a>
+  </div>
 
-    <div id="icon-rail" class="visible">
-        <!-- Hamburger toggle -->
-        <button class="rail-toggle" onclick="toggleRail()" title="Toggle menu" aria-label="Toggle navigation">
-        <svg class="icon-menu" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M2 4.5h14M2 9h14M2 13.5h14"/>
-        </svg>
-        <svg class="icon-close" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M4 4l10 10M14 4L4 14"/>
-        </svg>
-        </button>
+  <div class="nx-ambient" aria-hidden="true"><span></span><span></span><span></span></div>
+  <!-- shared neon gradients -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="nxFlow" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a888ff"/><stop offset=".5" stop-color="#e8c34a"/><stop offset="1" stop-color="#38d6f5"/>
+      </linearGradient>
+      <linearGradient id="nxFlowV" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#a888ff"/><stop offset=".55" stop-color="#6b5cf0"/><stop offset="1" stop-color="#38d6f5"/>
+      </linearGradient>
+      <linearGradient id="nxFlowH" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#8b63e8" stop-opacity="0"/><stop offset=".25" stop-color="#a888ff"/><stop offset=".6" stop-color="#38d6f5"/><stop offset="1" stop-color="#38d6f5" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="nxRibbonFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8b4dff" stop-opacity=".55"/><stop offset=".55" stop-color="#4b4fe8" stop-opacity=".35"/><stop offset="1" stop-color="#23aeca" stop-opacity=".5"/>
+      </linearGradient>
+      <radialGradient id="nxOrbV" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#d6c6ff"/><stop offset=".45" stop-color="#6a45f0"/><stop offset="1" stop-color="#2c1878"/></radialGradient>
+      <radialGradient id="nxOrbG" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#fff3c8"/><stop offset=".45" stop-color="#eec850"/><stop offset="1" stop-color="#a67c1c"/></radialGradient>
+      <radialGradient id="nxOrbC" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#d0f6ff"/><stop offset=".45" stop-color="#2bc2e0"/><stop offset="1" stop-color="#0a6a86"/></radialGradient>
+      <radialGradient id="nxOrbN" cx=".36" cy=".3" r=".9"><stop offset="0" stop-color="#dfe5ff"/><stop offset=".45" stop-color="#5068f0"/><stop offset="1" stop-color="#1b2470"/></radialGradient>
+      <filter id="nxSoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="9"/></filter>
+      <filter id="nxBloom" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+    </defs>
+  </svg>
 
-        <div class="rail-logo" onclick="goHome()" title="Home">
-        <img src="fls-mark.webp" alt="Free Lancer Studios"/>
-        <div class="rail-brand-text">Free Lancer<br><span>Studios</span></div>
-        </div>
+  <!-- ── START A PROJECT ── -->
+  <main class="nx" id="page-start">
+    <section class="nx-formwrap">
 
-        <ul class="rail-links">
-            <li>
-                <a class="rail-btn" href="index.html" id="rail-home">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 8.5L9 2l7 6.5V16a.5.5 0 01-.5.5h-4v-4h-5v4h-4A.5.5 0 012 16V8.5z"/>
-                </svg>
-                <span class="rail-label">Home</span>
-                </a>
-            </li>
+      <aside class="nx-aside nx-reveal">
+        <p class="nx-eyebrow">Start a project</p>
+        <h1 class="nx-h1">Let’s build <span class="nx-glow">something.</span></h1>
+        <p class="nx-sub">Tell us what you’re working on. No commitment, no pressure — just an honest conversation about what you need.</p>
+        <ol class="nx-next">
+          <li><span class="nx-next-n" style="--c:#e8c34a">1</span><div><h3>Send your brief</h3><p>A few minutes here saves an hour on the call.</p></div></li>
+          <li><span class="nx-next-n" style="--c:#a888ff">2</span><div><h3>We talk</h3><p>A free conversation about your goals, constraints and budget.</p></div></li>
+          <li><span class="nx-next-n" style="--c:#38d6f5">3</span><div><h3>Your private proposal</h3><p>A password-protected page with your options, phases and trade-offs.</p></div></li>
+          <li><span class="nx-next-n" style="--c:#6a82ff">4</span><div><h3>Discovery begins</h3><p>Technical and user discovery, then phases built to scale.</p></div></li>
+        </ol>
+        <p class="nx-alt">Just have a quick question? <a href="contact.html">Send us a note</a> instead.</p>
+      </aside>
 
-            <li><div class="rail-divider"></div></li>
-            <li><span class="rail-section-label">Company</span></li>
+      <div class="nx-card nx-form-card nx-reveal" style="--c:#38d6f5; --d:.1s">
+        <form id="project-form" class="nx-form">
+          <input type="hidden" name="form_type" value="start">
 
-            <li>
-                <a class="rail-btn" href="about.html" id="rail-about">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="6" r="2.5"/>
-                    <path d="M3.5 16c0-3.04 2.46-5.5 5.5-5.5s5.5 2.46 5.5 5.5"/>
-                </svg>
-                <span class="rail-label">About</span>
-                </a>
-            </li>
+          <!-- 1. Your info -->
+          <div class="form-section" style="--sc:#e8c34a">
+            <div class="form-section-label">Your info</div>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="field-name">Name <span class="req">*</span></label>
+                <input class="field-input" id="field-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name" required/>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="field-email">Email <span class="req">*</span></label>
+                <input class="field-input" id="field-email" name="email" type="email" placeholder="jane@company.com" autocomplete="email" required/>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-group">
+                <label class="field-label" for="field-company">Organization</label>
+                <input class="field-input" id="field-company" name="company" type="text" placeholder="Company, church or brand" autocomplete="organization"/>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="field-role">Your role</label>
+                <input class="field-input" id="field-role" name="role" type="text" placeholder="Founder, pastor, ops lead…"/>
+              </div>
+            </div>
+          </div>
 
-            <li>
-                <a class="rail-btn" href="portfolio.html" id="rail-portfolio">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="5" width="14" height="10" rx="1.5"/>
-                    <path d="M6 5V4a1 1 0 011-1h4a1 1 0 011 1v1"/>
-                </svg>
-                <span class="rail-label">Portfolio</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="rail-btn" href="services.html" id="rail-services">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 4.5h14M2 9h10M2 13.5h7"/>
-                </svg>
-                <span class="rail-label">Services</span>
-                </a>
-            </li>
-
-            <li><div class="rail-divider"></div></li>
-            <li><span class="rail-section-label">Start</span></li>
-
-            <li>
-                <a class="rail-btn active" href="start.html" id="rail-start">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 2l7 7-7 7M2 9h14"/>
-                </svg>
-                <span class="rail-label">Start a project</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="rail-btn" href="contact.html" id="rail-contact">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 3h14v12H2z"/>
-                    <path d="M2 5l7 5 7-5"/>
-                </svg>
-                <span class="rail-label">Contact</span>
-                </a>
-            </li>
-        </ul>
-        <a href="start.html" class="rail-cta">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 2l7 7-7 7M2 9h14"/>
-          </svg>
-          <span class="rail-cta-label">Start a project</span>
-        </a>
-    </div>
-
-    <!-- ── MAIN CONTENT ── -->
-    <div id="app" class="rail-shifted">
-        <div class="start-wrap">
-
-            <p class="start-eyebrow">Free Lancer Studios</p>
-            <h1 class="start-title">Let's build something.</h1>
-            <p class="start-sub">Tell us about your project and we'll follow up within two business days. No commitment, no pressure — just an honest conversation.</p>
-
-            <form id="project-form">
-                <input type="hidden" name="form_type" value="start">
-                <!-- ── 1. YOUR INFO ── -->
-                <div class="form-section">
-                    <div class="form-section-label">Your info</div>
-
-                    <div class="field-row">
-                        <div class="field-group">
-                            <label class="field-label" for="field-name">Name <span class="req">*</span></label>
-                            <input class="field-input" id="field-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name" required/>
-                        </div>
-                        <div class="field-group">
-                            <label class="field-label" for="field-email">Email <span class="req">*</span></label>
-                            <input class="field-input" id="field-email" name="email" type="email" placeholder="jane@company.com" autocomplete="email" required/>
-                        </div>
-                    </div>
-
-                    <div class="field-row">
-                        <div class="field-group">
-                            <label class="field-label" for="field-company">Company / brand</label>
-                            <input class="field-input" id="field-company" name="company" type="text" placeholder="Acme Inc."/>
-                        </div>
-                        <div class="field-group">
-                            <label class="field-label" for="field-role">Your role</label>
-                            <input class="field-input" id="field-role" name="role" type="text" placeholder="Founder, Marketing Lead, etc."/>
-                        </div>
-                    </div>
+          <!-- 2. The project -->
+          <div class="form-section" style="--sc:#a888ff">
+            <div class="form-section-label">The project</div>
+            <div class="field-row single">
+              <div class="field-group">
+                <label class="field-label" for="field-description">What are you trying to solve? <span class="req">*</span></label>
+                <textarea class="field-textarea" id="field-description" name="description" placeholder="What’s tangled today, who it affects and what “better” would look like." required></textarea>
+              </div>
+            </div>
+            <div class="field-row single">
+              <div class="field-group">
+                <span class="field-label" id="svc-label">How involved do you want us? <span class="nx-hint">Select all that apply</span></span>
+                <div class="nx-tiles is-3 is-multi" role="group" aria-labelledby="svc-label">
+                  <input class="tile-input" type="checkbox" id="svc-t1" name="services" value="Tier 1 — Compass (Consulting)"/>
+                  <label class="nx-tile" for="svc-t1" style="--c:#a888ff"><b>Tier 1: Compass</b><small>We map it, you build it</small></label>
+                  <input class="tile-input" type="checkbox" id="svc-t2" name="services" value="Tier 2 — Expedition (Hybrid Build)"/>
+                  <label class="nx-tile" for="svc-t2" style="--c:#38d6f5"><b>Tier 2: Expedition</b><small>We build it in your stack</small></label>
+                  <input class="tile-input" type="checkbox" id="svc-t3" name="services" value="Tier 3 — Atlas (Full Ownership)"/>
+                  <label class="nx-tile" for="svc-t3" style="--c:#e8c34a"><b>Tier 3: Atlas</b><small>We build, host and run it</small></label>
                 </div>
+              </div>
+            </div>
+            <div class="field-row single" style="margin-bottom:0">
+              <div class="field-group">
+                <label class="field-label" for="field-url">Website or reference links</label>
+                <input class="field-input" id="field-url" name="url" type="url" placeholder="https://example.com"/>
+              </div>
+            </div>
+          </div>
 
-                <!-- ── 2. THE PROJECT ── -->
-                <div class="form-section">
-                    <div class="form-section-label">The project</div>
+          <!-- 3. Referral -->
+          <div class="form-section" style="--sc:#e8c34a">
+            <div class="form-section-label">How’d you find us?</div>
+            <div class="nx-tiles is-pills" role="radiogroup" aria-label="How you found us">
+              <input class="tile-input" type="radio" id="ref-1" name="referral" value="Referral"/><label class="nx-tile" for="ref-1" style="--c:#e8c34a"><b>Referral</b></label>
+              <input class="tile-input" type="radio" id="ref-2" name="referral" value="Google"/><label class="nx-tile" for="ref-2" style="--c:#e8c34a"><b>Google</b></label>
+              <input class="tile-input" type="radio" id="ref-3" name="referral" value="Social Media"/><label class="nx-tile" for="ref-3" style="--c:#e8c34a"><b>Social media</b></label>
+              <input class="tile-input" type="radio" id="ref-4" name="referral" value="LinkedIn"/><label class="nx-tile" for="ref-4" style="--c:#e8c34a"><b>LinkedIn</b></label>
+              <input class="tile-input" type="radio" id="ref-5" name="referral" value="Portfolio"/><label class="nx-tile" for="ref-5" style="--c:#e8c34a"><b>Portfolio</b></label>
+              <input class="tile-input" type="radio" id="ref-6" name="referral" value="Other"/><label class="nx-tile" for="ref-6" style="--c:#e8c34a"><b>Other</b></label>
+            </div>
+          </div>
 
-                    <div class="field-row single">
-                        <div class="field-group">
-                            <label class="field-label" for="field-description">Project description <span class="req">*</span></label>
-                            <textarea class="field-textarea" id="field-description" name="description" placeholder="What are you building? What problem does it solve, and who is it for?" required></textarea>
-                        </div>
-                    </div>
+          <!-- 4. Notes -->
+          <div class="form-section" style="--sc:#a888ff">
+            <div class="form-section-label">Anything else?</div>
+            <div class="field-row single" style="margin-bottom:0">
+              <div class="field-group">
+                <label class="field-label" for="field-notes">Optional</label>
+                <textarea class="field-textarea" id="field-notes" name="notes" placeholder="Inspirations, constraints, past experiences, questions — anything you’d like us to know."></textarea>
+              </div>
+            </div>
+          </div>
 
-                    <div class="field-row single">
-                        <div class="field-group">
-                            <label class="field-label">Services level <span class="req">*</span></label>
-                            <div class="service-grid">
+          <!-- Legal -->
+          <div class="form-section" style="--sc:#38d6f5; margin-bottom:0">
+            <div class="form-section-label">Legal notice</div>
+            <p class="nx-legal">Submitting this form does not establish an official agreement or binding contract between the submitter and Free Lancer Studios L.L.C. This inquiry is for informational purposes only; all initial consultations are free of charge until a formal Scope of Work is signed. All shared information is treated as confidential and subject to mutual NDA. Your brand, data, and intellectual property will not be represented or listed by Free Lancer Studios L.L.C. without prior written consent.</p>
+            <label class="nx-check">
+              <input type="checkbox" id="legal-acknowledge" name="legal_acknowledge" required>
+              <span>I’ve read the legal notice and understand this submission is not a binding contract.</span>
+            </label>
+          </div>
 
-                                <input class="tile-input" type="radio" id="svc-t1" name="services" value="Tier 1 — Compass (Consulting)"/>
-                                <label class="service-label" for="svc-t1">
-                                    <div class="check-box"></div>
-                                    <span class="service-name">Tier 1 — Compass <span class="service-tier-sub">Consulting only · $100/hr</span></span>
-                                </label>
+          <div class="nx-submit">
+            <button class="nx-btn" type="submit">Send project brief</button>
+            <p><strong>No spam, ever.</strong><br>Every brief gets a personal reply within 1–2 business days.</p>
+          </div>
+        </form>
+      </div>
 
-                                <input class="tile-input" type="radio" id="svc-t2" name="services" value="Tier 2 — Expedition (Hybrid Build)"/>
-                                <label class="service-label" for="svc-t2">
-                                    <div class="check-box"></div>
-                                    <span class="service-name">Tier 2 — Expedition <span class="service-tier-sub">Hybrid build · flat rate</span></span>
-                                </label>
+    </section>
+  </main>
 
-                                <input class="tile-input" type="radio" id="svc-t3" name="services" value="Tier 3 — Atlas (Full Ownership)"/>
-                                <label class="service-label" for="svc-t3">
-                                    <div class="check-box"></div>
-                                    <span class="service-name">Tier 3 — Atlas <span class="service-tier-sub">Full ownership · flat rate</span></span>
-                                </label>
-
-                                <input class="tile-input" type="radio" id="svc-t4" name="services" value="Tier 4 — Expedition + Compass (Hybrid Build with Consulting)"/>
-                                <label class="service-label" for="svc-t4">
-                                    <div class="check-box"></div>
-                                    <span class="service-name">Tier 2 + Consulting <span class="service-tier-sub">Expedition with Compass add-on</span></span>
-                                </label>
-
-                                <input class="tile-input" type="radio" id="svc-t5" name="services" value="Tier 5 — Atlas + Compass (Full Ownership with Consulting)"/>
-                                <label class="service-label" for="svc-t5">
-                                    <div class="check-box"></div>
-                                    <span class="service-name">Tier 3 + Consulting <span class="service-tier-sub">Atlas with Compass add-on</span></span>
-                                </label>
-
-                                <input class="tile-input" type="radio" id="svc-unsure" name="services" value="Not sure yet"/>
-                                <label class="service-label" for="svc-unsure">
-                                    <div class="check-box"></div>
-                                    <span class="service-name">Not sure yet <span class="service-tier-sub">We'll help figure it out</span></span>
-                                </label>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field-row single">
-                        <div class="field-group">
-                            <label class="field-label" for="field-url">Existing website / reference URLs</label>
-                            <input class="field-input" id="field-url" name="url" type="url" placeholder="https://example.com"/>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── 3. BUDGET ── -->
-                <div class="form-section">
-                    <div class="form-section-label">Budget range</div>
-                    <div class="budget-grid">
-
-                        <input class="tile-input" type="radio" id="budget-1" name="budget" value="Under $5K"/>
-                        <label class="budget-label" for="budget-1">
-                            <div class="budget-tile-name">Under $5K</div>
-                            <div class="budget-tile-sub">Starter scope</div>
-                        </label>
-
-                        <input class="tile-input" type="radio" id="budget-2" name="budget" value="$5K–$15K"/>
-                        <label class="budget-label" for="budget-2">
-                            <div class="budget-tile-name">$5K – $15K</div>
-                            <div class="budget-tile-sub">Standard</div>
-                        </label>
-
-                        <input class="tile-input" type="radio" id="budget-3" name="budget" value="$15K–$50K"/>
-                        <label class="budget-label" for="budget-3">
-                            <div class="budget-tile-name">$15K – $50K</div>
-                            <div class="budget-tile-sub">Pro build</div>
-                        </label>
-
-                        <input class="tile-input" type="radio" id="budget-4" name="budget" value="$50K+"/>
-                        <label class="budget-label" for="budget-4">
-                            <div class="budget-tile-name">$50K+</div>
-                            <div class="budget-tile-sub">Enterprise</div>
-                        </label>
-
-                    </div>
-                </div>
-
-                <!-- ── 4. TIMELINE ── -->
-                <div class="form-section">
-                    <div class="form-section-label">Ideal timeline</div>
-                    <div class="timeline-grid">
-
-                        <input class="tile-input" type="radio" id="tl-1" name="timeline" value="ASAP"/>
-                        <label class="timeline-label" for="tl-1">
-                            <div class="timeline-tile-name">ASAP</div>
-                            <div class="timeline-tile-sub">Under 4 weeks</div>
-                        </label>
-
-                        <input class="tile-input" type="radio" id="tl-2" name="timeline" value="1–3 Months"/>
-                        <label class="timeline-label" for="tl-2">
-                            <div class="timeline-tile-name">1–3 Months</div>
-                            <div class="timeline-tile-sub">Standard pace</div>
-                        </label>
-
-                        <input class="tile-input" type="radio" id="tl-3" name="timeline" value="3–6 Months"/>
-                        <label class="timeline-label" for="tl-3">
-                            <div class="timeline-tile-name">3–6 Months</div>
-                            <div class="timeline-tile-sub">Phased rollout</div>
-                        </label>
-
-                        <input class="tile-input" type="radio" id="tl-4" name="timeline" value="Flexible"/>
-                        <label class="timeline-label" for="tl-4">
-                            <div class="timeline-tile-name">Flexible</div>
-                            <div class="timeline-tile-sub">No hard deadline</div>
-                        </label>
-
-                    </div>
-                </div>
-
-                <!-- ── 5. REFERRAL ── -->
-                <div class="form-section">
-                    <div class="form-section-label">How'd you find us?</div>
-                    <div class="referral-row">
-
-                        <input class="tile-input" type="radio" id="ref-1" name="referral" value="Referral"/>
-                        <label class="referral-label" for="ref-1">Referral</label>
-
-                        <input class="tile-input" type="radio" id="ref-2" name="referral" value="Google"/>
-                        <label class="referral-label" for="ref-2">Google</label>
-
-                        <input class="tile-input" type="radio" id="ref-3" name="referral" value="Social Media"/>
-                        <label class="referral-label" for="ref-3">Social media</label>
-
-                        <input class="tile-input" type="radio" id="ref-4" name="referral" value="LinkedIn"/>
-                        <label class="referral-label" for="ref-4">LinkedIn</label>
-
-                        <input class="tile-input" type="radio" id="ref-5" name="referral" value="Portfolio"/>
-                        <label class="referral-label" for="ref-5">Portfolio</label>
-
-                        <input class="tile-input" type="radio" id="ref-6" name="referral" value="Other"/>
-                        <label class="referral-label" for="ref-6">Other</label>
-
-                    </div>
-                </div>
-
-                <!-- ── 6. NOTES ── -->
-                <div class="form-section">
-                    <div class="form-section-label">Anything else?</div>
-                    <div class="field-row single">
-                        <div class="field-group">
-                            <textarea class="field-textarea" id="field-notes" name="notes" placeholder="Inspirations, constraints, past experiences, questions — anything you'd like us to know."></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-section" style="margin-top: 40px;">
-                    <div class="form-section-label">Legal notice</div>
-                    <div style="background: rgba(255, 255, 255, 0.03); border-left: 2px solid var(--border); padding: 16px; margin-bottom: 20px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
-                        Submitting this form does not establish an official agreement or binding contract 
-                        between the submitter and Free Lancer Studios L.L.C. This inquiry is for informational purposes only; 
-                        all initial consultations are free of charge until a formal Scope of Work is signed. All shared 
-                        information is treated as confidential and subject to mutual NDA. Your brand, data, and intellectual 
-                        property will not be represented or listed by Free Lancer Studios L.L.C. without prior written consent.
-                    </div>
-
-                    <label class="checkbox-container" style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer;">
-                        <input type="checkbox" id="legal-acknowledge" name="legal_acknowledge" required style="margin-top: 4px; transform: scale(1.2);">
-                        <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
-                            I acknowledge that I have read the Legal Notice above and understand that this submission does not constitute a binding contract.
-                        </span>
-                    </label>
-                </div>
-                <!-- ── SUBMIT ── -->
-                <div class="submit-row">
-                    <button class="btn-primary" type="submit">Send project brief</button>
-                    <p class="submit-note">
-                        <strong>No spam, ever.</strong><br>
-                        We respond to every inquiry personally within two business day.
-                    </p>
-                </div>
-
-            </form>
-
-        </div><!-- /start-wrap -->
-    </div><!-- /app -->
-<footer style="margin-top: 80px; padding: 40px 24px; border-top: 1px solid var(--border); text-align: center;">
-    <p style="font-size: 0.75rem; color: var(--text-subtle); letter-spacing: 0.05em;">
-        &copy; 2026 FREE LANCER STUDIOS — 
-        <a href="privacy.html" style="color: var(--text-muted); text-decoration: none; margin-left: 10px;">Privacy policy</a>
-    </p>
-</footer>
+  <footer class="nx-foot">
+    <p>&copy; 2026 Free Lancer Studios L.L.C. <a href="privacy.html">Privacy policy</a></p>
+  </footer>
+</body>
+</html>
