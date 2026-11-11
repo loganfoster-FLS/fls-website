@@ -1,6 +1,7 @@
-// Shared behavior for the neon pages (About / Services / Portfolio):
-// scroll reveals. Pages add `class="js"` to <html> inline so content is only
-// hidden when this script is actually going to reveal it.
+// Shared behavior for the neon pages: scroll reveals.
+// The `js` class is added here, not inline, so .nx-reveal content is only ever
+// hidden when this module actually runs. If it fails to load, everything shows.
+document.documentElement.classList.add('js')
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const items = document.querySelectorAll<HTMLElement>('.nx-reveal')
