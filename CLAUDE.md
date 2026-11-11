@@ -35,6 +35,9 @@ When in doubt, favor changes that improve clarity of the offer, credibility of t
 
 Newest first. Record notable content/structure changes here so the site's history stays legible.
 
+### 2026-11-10 — Favicon from the logo
+- New `public/` folder (Vite copies it to the site root unchanged) holding `favicon.ico` (16/32/48), `icon-192.png` (transparent) and `apple-touch-icon.png` (180, on `--bg` `#070412`, because iOS fills transparency with black). All are generated from `fls-mark.webp`, cropped tight and padded square. Every page links them right after `<title>`; add the same three `<link>`s to any new page.
+
 ### 2026-11-10 — Google Tag Manager (analytics)
 - Every page loads GTM container **`GTM-5RTQPP44`**: Google's standard snippet is the first thing in `<head>`, and the `<noscript>` iframe sits right after `<body>`. GA4 and any other tags are managed **inside GTM**, not in this repo. Add the same two snippets to any new page.
 - Privacy policy §4 (Cookies) now says the site uses GTM + Google Analytics analytics cookies; it no longer claims "no tracking pixels".
