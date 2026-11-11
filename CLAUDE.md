@@ -20,7 +20,7 @@ When in doubt, favor changes that improve clarity of the offer, credibility of t
   - `src/styles.css` defines Tailwind `@theme` tokens and then `@import "../styles.css"` — so the large hand-written **`styles.css` at the repo root is still the primary stylesheet** and flows into the build. Add page styles there unless they need Tailwind tokens.
   - `src/main.ts` holds the shared interactive behavior (rail nav, page toggles, forms). Page-specific one-off scripts may live inline in the page.
 - **Pages:** `index` (home), `portfolio`, `services`, `about`, `contact`, `start`, `privacy`.
-- **Deploy:** build output is `dist/` (gitignored). Do not commit `dist/` or `node_modules/`.
+- **Deploy:** pushes to `main` run `.github/workflows/deploy.yml`, which type-checks, runs `npm run build` and publishes `dist/` to GitHub Pages (Pages source = "GitHub Actions"; custom domain set in Pages settings, `CNAME` copied into the artifact). `dist/` is gitignored — do not commit `dist/` or `node_modules/`. Before 2026-11-11 Pages served the raw branch, so `/src/*.ts` never ran live (forms, rail toggle and the system map were dead there).
 
 ## Conventions
 
