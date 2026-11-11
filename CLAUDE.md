@@ -35,6 +35,10 @@ When in doubt, favor changes that improve clarity of the offer, credibility of t
 
 Newest first. Record notable content/structure changes here so the site's history stays legible.
 
+### 2026-11-10 — Google Tag Manager (analytics)
+- Every page loads GTM container **`GTM-5RTQPP44`**: Google's standard snippet is the first thing in `<head>`, and the `<noscript>` iframe sits right after `<body>`. GA4 and any other tags are managed **inside GTM**, not in this repo. Add the same two snippets to any new page.
+- Privacy policy §4 (Cookies) now says the site uses GTM + Google Analytics analytics cookies; it no longer claims "no tracking pixels".
+
 ### 2026-11-10 — Neon revision of About, Services, Portfolio + interactive system map
 - **Shared neon system** (`.nx-*` block at the end of `styles.css`, `src/neon.ts` for scroll reveals): crisp neon strokes with soft halos, smooth bezier curves and pill buttons keyed to the mark's turns. Pages add `class="js"` to `<html>` inline so reveal-hidden content still shows without JS; `prefers-reduced-motion` turns off every animation.
 - **About:** neon line-art of the mark as the hero, a mission statement, four core truths ("We don't ask teams to go where we haven't been", clarity before code, "the best engagement ends", faith-first foundation), a four-step "How we work" wave, who we work with, and a CTA.
