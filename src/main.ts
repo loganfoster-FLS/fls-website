@@ -136,8 +136,8 @@ function showSuccessMessage(container: HTMLElement): void {
   success.className = 'form-success show'
   success.innerHTML = `
     <div class="form-success-icon">✦</div>
-    <div class="form-success-title">Transmission Received.</div>
-    <div class="form-success-body">Your inquiry has been logged. We will reach out within one business day.</div>
+    <div class="form-success-title">Message received.</div>
+    <div class="form-success-body">Thanks for reaching out. A real person will reply within 1–2 business days.</div>
   `
   container.appendChild(success)
 }
@@ -184,7 +184,15 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.innerText = 'Sending...'
     btn.disabled = true
 
-    fetch(FORM_SCRIPT_URL, { method: 'POST', body: new FormData(form) })
+    // Multi-select fields (e.g. services) send one entry per checked box; join them
+    // so the Apps Script, which reads e.parameter, receives every selection.
+    const data = new FormData(form)
+    for (const key of new Set(data.keys())) {
+      const values = data.getAll(key)
+      if (values.length > 1) data.set(key, values.join(', '))
+    }
+
+    fetch(FORM_SCRIPT_URL, { method: 'POST', body: data })
       .then(() => {
         form.style.display = 'none'
         if (form.parentElement) showSuccessMessage(form.parentElement)
